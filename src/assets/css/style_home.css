@@ -1,0 +1,117 @@
+*{
+    font-family: PingFang-Medium, PingFangSC-Regular, "Microsoft YaHei";
+    text-decoration: none;
+    color:#333;
+    word-wrap:break-word;
+    word-break:break-all;
+}
+
+html{
+    font-size: 20px;
+    height: 100%;
+    overflow-x: hidden;
+    -webkit-text-size-adjust:none;
+    -ms-touch-action: none;
+    -webkit-touch-action: none;
+    touch-action: none;
+}
+
+body{
+    position: relative;
+    max-width: 768px;
+    min-width: 320px;
+    margin: 0 auto;
+    /*box-sizing:border-box;*/
+    overflow-x: hidden;
+    /*perspective:600px;*/
+    /*-webkit-perspective:600px;*/
+    -webkit-tap-highlight-color: transparent;
+    /*height: 100%;*/
+}
+
+/*最大的内容容器块*/
+
+.container{
+    position: relative;
+    left:0;
+    top:0;
+    transition:all 0.8s ease 0s;
+    -webkit-transition:all 0.8s ease 0s;
+    /*overflow: hidden;*/
+    z-index: 2;
+}
+
+div.go_contain{
+    left:70%;
+    transform:rotateY(-15deg);
+    -webkit-transform:rotateY(-15deg);
+}
+
+.contain_shadow{
+    position: absolute;
+    left:0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    background: rgb(0,0,0);
+    z-index: -1;
+    transition:all 0.8s ease 0s;
+    -webkit-transition:all 0.8s ease 0s;
+    opacity: 0;
+}
+
+div.go_shadow{
+    z-index: 1000;
+    opacity: 0.3;
+}
+
+/*页面的内容块的样式*/
+
+.media_info{
+    margin-top:1.5rem;
+    box-sizing:border-box;
+    padding:0 1.2rem;
+
+}
+
+.show{
+    display: block!important;
+}
+
+.hide{
+    display: none!important;
+}
+
+.noscroll{
+    overflow: hidden;
+}
+
+.scroller1{
+    /*transition-timing-function:cubic-bezier(0.1, 0.57, 0.1, 1);*/
+    transition-timing-function:cubic-bezier(0.25,0.46, 0.45, 0.94);
+    -webkit-transition-timing-function:cubic-bezier(0.25,0.46, 0.45, 0.94);
+    transition-duration:600ms;
+    -webkit-transition-duration:600ms;
+    transition-property:all;
+    -webkit-transition-property:all;
+}
+
+.scroller2{
+    transition-timing-function:cubic-bezier(0.25,0.46, 0.45, 0.94);
+    -webkit-transition-timing-function:cubic-bezier(0.25,0.46, 0.45, 0.94);
+    transition-duration:600ms;
+    -webkit-transition-duration:600ms;
+    transition-property:all;
+    -webkit-transition-property:all;
+}
+
+
+@media (max-width: 480px){
+
+    /* 页面字号大小480以下的媒体查询  配合html的字号的大小改变*/
+
+    .media_info{
+        margin-top:1rem;
+    }
+
+}

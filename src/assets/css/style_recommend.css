@@ -1,0 +1,211 @@
+/*推荐块的样式*/
+
+.media_info_contain{
+    overflow: hidden;
+    position: relative;
+
+}
+
+.media_info_left{
+    width:46.58%;
+    margin-right:4.27%;
+    float: left;
+    padding-top:31.38%;
+    position: relative;
+}
+
+.media_info_left a{
+    width:100%;
+    height: 100%;
+    position: absolute;
+    left:0;
+    top:0;
+}
+
+.media_info_movie{
+    width:25%;
+    padding-top:25%;
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    -webkit-transform:translate(-50%,-50%);
+    background:rgba(0,0,0,0.6);
+    border:2px solid #fff;
+    border-radius: 50%;
+    display: none;
+}
+
+.have_movie .media_info_movie{
+    display: block!important;
+}
+
+.media_info_movie>span{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    -webkit-transform:translate(-50%,-50%);
+    border-left:1.5rem solid #fff;
+    border-right:0px solid transparent;
+    border-top:0.75rem solid transparent;
+    border-bottom:0.75rem solid transparent;
+    border-radius: 1px;
+}
+
+.media_info_left img{
+    width:100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.media_info_right{
+    float: left;
+    width:49.15%;
+}
+
+.media_info_right>p.p1{
+    margin-top:1.5rem;
+    width:100%;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+}
+
+.media_info_right>p.p1 a{
+    font-size: 1.4rem;
+    font-weight: 400;
+    color:#000;
+}
+
+.media_info_right>p.p2{
+    font-size: 1rem;
+    color:#aaa;
+    margin-top:0.75rem;
+}
+
+.media_info_icon{
+    width:49.15%;
+    float: left;
+    position: absolute;
+    left:50.85%;
+    bottom:1.5rem;
+    font-size: 1rem;
+    /*background: yellow;*/
+}
+
+.media_info_icon:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.media_info_eyes,.media_info_msg{
+    float: left;
+    position: relative;
+    height: 26px;
+    line-height: 26px;
+}
+
+.media_info_eyes{
+    padding-left:40px;
+}
+
+.media_info_msg{
+    padding-left:36px;
+}
+
+.media_info_msg{
+    margin-left:24px;
+}
+
+.media_info_icon .media_info_eyes>img{
+    position: absolute;
+    left:0;
+    top:50%;
+    transform:translateY(-50%);
+    -webkit-transform:translateY(-50%);
+}
+
+.media_info_icon .media_info_msg>img{
+    position: absolute;
+    left:0;
+    top:50%;
+    transform:translateY(-50%);
+    -webkit-transform:translateY(-50%);
+    width:26px;
+}
+
+@media (max-width: 480px){
+
+    /* 推荐块的480以下的媒体查询  配合html的字号的大小改变*/
+    .media_info_icon{
+        bottom: 0;
+        font-size: 10px;
+    }
+    .media_info_eyes{
+        padding-left:20px;
+    }
+
+    .media_info_msg{
+        padding-left:20px;
+        margin-left:20px;
+    }
+
+    .media_info_eyes, .media_info_msg{
+        font-size:0;
+    }
+
+    .media_info_eyes span, .media_info_msg span{
+        line-height:normal;
+        vertical-align:middle;
+        display:inline-block;
+        font-size:10px;
+    }
+
+    .media_info_eyes:after,.media_info_msg:after{
+        content:'';
+        width:0;
+        height:100%;
+        display:inline-block;
+        vertical-align:middle;
+    }
+
+    .media_info_icon .media_info_eyes>img{
+        width: auto;
+        height: 8px;
+    }
+
+    .media_info_icon .media_info_msg>img{
+        width: auto;
+        height: 12px;
+    }
+
+    .media_info_right>p.p1{
+        margin-top:10px;
+    }
+
+    .media_info_right>p.p1 a{
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .media_info_right>p.p2{
+        margin-top: 5px;
+        font-size: 12px;
+    }
+
+    .media_info_movie{
+        border:1px solid #fff;
+    }
+
+
+    .media_info_movie>span{
+        border-left:14px solid #fff;
+        border-right:0px solid transparent;
+        border-top:7px solid transparent;
+        border-bottom:7px solid transparent;
+    }
+}

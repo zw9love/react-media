@@ -1,0 +1,60 @@
+/*主页头部公共样式*/
+
+.header_contain{
+    padding:0 1.2rem;
+}
+
+.header_contain{
+    border-bottom:1px solid #e8e8e8;
+}
+
+header.media_header{
+    width:100%;
+    overflow:hidden;
+    box-sizing:border-box;
+    padding-left: 1.75rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    position: relative;
+}
+
+header.media_header>a{
+    position: absolute;
+    left:0;
+    top:50%;
+    transform:translateY(-50%);
+    -webkit-transform:translateY(-50%);
+    padding-right:25px;
+}
+
+header.media_header>a>img{
+    vertical-align: middle;
+}
+
+/*修改头部高亮字体*/
+
+.current a{
+    color:#e60012!important;
+    font-size: 1.7rem!important;
+    line-height: 2rem!important;
+}
+
+@media (max-width: 480px){
+
+    /* 推荐块的480以下的媒体查询  配合html的字号的大小改变*/
+
+    header.media_header>a{
+        top:44%;
+        padding: 10px 25px 10px 0px;
+    }
+
+    header.media_header>a>img{
+        width:18px;
+        height:18px;
+    }
+
+    .current a{
+        font-size: 16px!important;
+        line-height: 26px!important;
+    }
+}
