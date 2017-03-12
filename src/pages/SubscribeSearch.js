@@ -32,7 +32,7 @@ export default React.createClass({
     render(){
         var self=this;
         return(
-            <div className="container">
+            <div className="search_container">
                 <SearchTitle title="搜索尚阅号" />
                 <div className={this.state.ismodal ? "modal active" : "modal"} style={this.state.modalStyle} ><div>{this.state.modalMsg}</div></div>
                 {

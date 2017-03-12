@@ -30,7 +30,7 @@ export default React.createClass({
     },
     render(){
         return(
-            <div>
+            <div id="sugguestion">
                 <MyTitle title="我的意见" name="" />
                 <div className="container">
                     <div className="sugguest_info">

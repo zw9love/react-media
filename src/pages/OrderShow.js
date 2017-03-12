@@ -14,7 +14,7 @@ export  default  React.createClass({
     render(){
         return(
             <div>
-                <div className="page_header">
+                <div className="page_header" id="ordershow">
                     <div className="back" onClick={this.back}>
                         <img src={require("../assets/img/back.png")} alt="" />
                     </div>

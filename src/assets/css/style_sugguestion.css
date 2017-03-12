@@ -47,7 +47,7 @@
     }
 
     /*说明块样式*/
-    p{
+    #sugguestion p{
         font-size: 1rem;
         color:#999;
         margin-top:10px;
