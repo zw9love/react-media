@@ -7,7 +7,7 @@ import '../assets/css/style_search.css'
 export default React.createClass({
     render(){
         return(
-            <div className="container">
+            <div className="search_container">
                 <SearchTitle title="搜索推荐文章" />
                 {
                     this.state.list.map(function(msg,i){

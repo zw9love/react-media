@@ -19,7 +19,7 @@ export default React.createClass({
                     </a>
 
                     <div className="main_order_info">
-                        <p><a href="javascript:;" >{this.props.data.name}</a></p>
+                        <p><a href="javascript:;" onClick={this.jump}>{this.props.data.name}</a></p>
                         <p>{this.props.data.info}</p>
                     </div>
                     <span id="time">{this.props.data.time}</span>
