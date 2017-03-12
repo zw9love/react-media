@@ -1,0 +1,111 @@
+    
+    /*详情面单独样式*/
+
+    /*section块*/
+
+    .main{
+        margin-top:2rem;
+        box-sizing:border-box;
+        padding: 0 1.2rem;
+    }
+    .main>p.main_title{
+        font-size: 2rem;
+        box-sizing:border-box;
+        /*padding:0 10px;*/
+        font-weight: 200;
+    }
+
+    .container{
+        padding: 0;
+    }
+
+    .read_all{
+        margin:1.5rem 0;
+
+    }
+
+
+    .read_all a{
+        font-size: 1.4rem;
+        color:#2e99e9;
+        font-weight: 400;
+        text-decoration: none;
+    }
+
+
+
+    .line{
+        height: 1px;
+        background: #e8e8e8;
+        margin:1.5rem 0;
+    }
+
+    .same_read{
+        font-size: 1.7rem;
+        font-weight: 400;
+        margin-bottom: 1.5rem;
+    }
+
+    
+
+    body>.line{
+        margin-bottom: 100px
+    }
+
+    .noscroll{
+        overflow: hidden;
+    }
+
+    /*页面遮罩层样式*/
+
+    .shadow{
+        width:100%;
+        height: 100%;
+        position: fixed;
+        background:rgba(0,0,0,0.5);
+        left:0;
+        top:0;
+        z-index: 100;
+        /*display: none;*/
+    }
+
+    .loading{
+        margin-top:1.25rem;
+    }
+
+    .loading p{
+        text-align: center;
+        font-size: 1.2rem;
+        color:#999999;
+        font-weight: 400;
+    }
+
+
+    @media (max-width: 480px){
+
+        .main>p.main_title{
+            font-size: 22px;
+        }
+
+        .main{
+            margin-top:15px;
+        }
+
+
+        /*配合底部块的设置的margin值*/
+
+        body>.line{
+            margin-bottom: 40px
+        }
+
+        /* 页面字号大小480以下的媒体查询  配合html的字号的大小改变*/
+
+        .same_read{
+            font-size: 18px;
+        }
+
+        .read_all a{
+            font-size: 16px;
+        }
+
+    }

@@ -31,7 +31,7 @@ body{
 
 /*最大的内容容器块*/
 
-.container{
+.home_container{
     position: relative;
     left:0;
     top:0;

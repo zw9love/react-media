@@ -1,0 +1,114 @@
+
+
+    /*意见块样式*/
+
+    .container{
+        margin-top:2.5rem;
+        padding:0 1.2rem;
+    }
+
+    .sugguest_info{
+        width:100%;
+        height: 15rem;
+        position: relative;
+        padding: 20px;
+        box-sizing:border-box;
+        border-radius: 10px;
+        border:1px solid #ccc;
+    }
+
+    .sugguest_info textarea{
+        width:100%;
+        height: 100%;
+        border: none;
+        outline: none;
+        resize: none;
+        font-size: 1.2rem;
+    }
+
+    /*联系电话块样式*/
+
+    .sugguest_phone{
+        height: 3rem;
+        margin-top:1.5rem;
+        border-radius: 10px;
+        border:1px solid #ccc;
+    }
+
+    .sugguest_phone>input{
+        display: block;
+        width:100%;
+        height: 100%;
+        border: none;
+        outline: none;
+        text-indent: 20px;
+        font-size: 1.2rem;
+        border-radius: 10px;
+    }
+
+    /*说明块样式*/
+    p{
+        font-size: 1rem;
+        color:#999;
+        margin-top:10px;
+    }
+
+    button.commit{
+        display: block;
+        width:100%;
+        height: 4rem;
+        font-size: 1.5rem;
+        line-height: 4rem;
+        border:none;
+        outline: none;
+        background: #eeeeee;
+        border-radius: 2rem;
+        color:#999;
+        margin-top:2.5rem;
+        cursor: pointer;
+    }
+
+    button.hover{
+        background: #e92230;
+        color:#fff;
+    }
+
+    @media (max-width: 480px){
+
+        /*页面480px以下的字号大小*/
+
+        .sugguest_info textarea,.sugguest_phone>input,body>button.commit{
+            font-size: 12px;
+        }
+
+        p{
+            font-size: 12px;
+        }
+
+        button.commit{
+            height: 3rem;
+            line-height: 3rem;
+        }
+
+        .sugguest_info{
+            padding:10px;
+        }
+
+        .sugguest_phone>input{
+            text-indent: 10px;
+        }
+
+        .sugguest_info{
+            border-radius: 6px;
+        }
+
+
+         .sugguest_phone{
+            border-radius: 6px;
+        }
+
+        .sugguest_phone>input{
+            border-radius: 6px;
+        }
+
+    }

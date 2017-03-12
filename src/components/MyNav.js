@@ -7,6 +7,11 @@ import $ from 'jquery'
 import Slidemove from '../assets/js/Slidemove.js'
 
 export default React.createClass({
+    getInitialState(){
+        return{
+            index:''
+        }
+    },
     //包含块的初始化工作
     containerInit(){
         // console.log(this.refs.self);
@@ -65,15 +70,28 @@ export default React.createClass({
         Slidemove.go('mouse');
         Slidemove.go('touch');
     },
-    myclick(index){
+    myclick(){
         for (var i = 0; i < this.props.list.length; i++) {
             //只有用setState()才会重新渲染dom
             this.refs["li" + i].setState({isactive: false})
         }
-        if(index !== undefined){
-            this.refs["li" + index].setState({isactive: true})
-        }
     },
+    setIndex(val){
+        this.setState({index:val})
+    },
+    // componentWillUpdate(nextProps,nextState){
+    //     alert(666);
+    //     console.log(this.state.index);
+    // },
+    //shouldComponentUpdate 的返回值的布尔值真假 直接决定componentWillUpdate componentDidUpdate会不会执行
+    // shouldComponentUpdate(nextProps,nextState){
+    //     console.log(nextProps);
+    //     console.log(nextState);
+    //     return true;
+    // },
+    // componentDidUpdate(){
+    //     console.log('值被更新再渲染')
+    // },
     render: function () {
         var self = this;
         return (
@@ -81,7 +99,7 @@ export default React.createClass({
                 <ul id="scroller">
                     {
                         this.props.list.map(function (msg, i) {
-                            return <NavLi key={i} data={msg} navClick={self.myclick} flag={self.props.flag}
+                            return <NavLi setIndex={self.setIndex} key={i} data={msg} navClick={self.myclick} flag={self.props.flag}
                                           ref={"li" + i}  index={i}/>
                         })
                     }

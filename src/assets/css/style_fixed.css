@@ -1,0 +1,263 @@
+/*底部固定块的样式*/
+
+.comment_fixed{
+    width: 100%;
+    background:#fff;
+    position: fixed;
+    bottom: 0;
+    left:50%;
+    max-width:768px;
+    transform:translateX(-50%);
+    -webkit-stransform:translateX(-50%);
+    z-index: 103;
+}
+
+.comment_fixed ul{
+    overflow: hidden;
+    height: 5rem;
+    box-sizing:border-box;
+    padding:20px;
+    position: relative;
+}
+
+.comment_fixed ul li{
+    float: left;
+    height: 100%;
+    width:8.547%;
+}
+
+.comment_fixed ul li{
+    float: left;
+    height: 100%;
+    text-align: center;
+    line-height: 60px;
+    position: relative;
+}
+
+.comment_fixed ul li:nth-child(3),.comment_fixed ul li:nth-child(4),.comment_fixed ul li:nth-child(5){
+    float: right;
+}
+
+.comment_fixed ul li:nth-child(4){
+    padding:0 5%;
+}
+
+
+
+.comment_fixed ul li img{
+    width: 80%;
+    vertical-align: middle;
+    min-width: 30px;
+}
+
+.comment_fixed ul li a{
+    display: block;
+    position: relative;
+    width:100%;
+    height: 100%;
+}
+
+.comment_fixed ul li a img{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    -webkit-transform:translate(-50%,-50%);
+}
+
+.comment_fixed ul li img.back{
+    position: absolute;
+    height:30px;
+    width: auto;
+    top:50%;
+    left:0;
+    transform:translateY(-50%);
+    -webkit-transform:translateY(-50%);
+    padding-right: 10px;
+}
+
+.comment_fixed ul li:nth-child(2){
+    width: 49.71%;
+}
+
+/*底部固定块的msg块样式*/
+
+.comment_fixed ul li:nth-child(5) a{
+    width:80%;
+    position: absolute;
+    top:50%;
+    left:0;
+    transform:translateY(-50%);
+    -webkit-transform:translateY(-50%);
+    min-width: 30px;
+}
+
+.comment_fixed ul li:nth-child(5) img{
+    width: 100%;
+}
+
+.comment_fixed ul li:nth-child(5) a span.num{
+    font-size: 0.9rem;
+    height: 1rem;
+    color:#ec5059;
+    position: absolute;
+    right: 0;
+    background: #fff;
+    line-height: 0;
+    display: block;
+    line-height: 1rem;
+    top:4px;
+}
+
+/*底部固定块的输入框块样式*/
+
+.comment_txt{
+    width:100%;
+    box-sizing:border-box;
+    border:1px solid #ccc;
+    height: 100%;
+    border-radius: 30px;
+    position: relative;
+}
+
+.comment_txt>span:first-child{
+    display: block;
+    width:100%;
+    height: 100%;
+    border-radius: 30px;
+}
+
+.comment_txt>span:last-child{
+    color:#999;
+    position: absolute;
+    left:30px;
+    top:50%;
+    transform:translateY(-50%);
+    -webkit-transform:translateY(-50%);
+    font-size: 1.2rem;
+}
+
+/*底部固定块的分享块样式*/
+
+.comment_fixed_hide{
+    width:100%;
+    padding-top:56.26%;
+    background: #fff;
+    /*bottom:56.26%;*/
+    position: relative;
+    /*display: none;*/
+}
+
+.comment_fixed_contain{
+    width:100%;
+    height: 100%;
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    border-bottom:1px solid #ccc;
+}
+
+.comment_fixed_hide .comment_fixed_contain ol{
+
+    overflow: hidden;
+    margin-top:4.66%;
+
+}
+
+.comment_fixed_hide .comment_fixed_contain ol:nth-child(2){
+    width:100%;
+    position: absolute;
+    bottom:8%;
+    left:0;
+}
+
+.comment_fixed_hide .comment_fixed_contain ol li{
+    width:16%;
+    float: left;
+    text-align: center;
+    position: relative;
+}
+
+.comment_fixed_hide .comment_fixed_contain ol li:first-child{
+    padding-left: 13%;
+}
+
+.comment_fixed_hide .comment_fixed_contain ol li:nth-child(2){
+    padding: 0 13.33%;
+}
+
+.comment_fixed_hide .comment_fixed_contain ol li img{
+    width:83.33%;
+    vertical-align: middle;
+    /*min-width: 50px;*/
+}
+
+.comment_fixed_hide .comment_fixed_contain ol li span{
+    /*width:100%;*/
+    font-size: 1.2rem;
+}
+
+/*底部取消块样式*/
+
+.comment_fixed ul .cancle{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    -webkit-transform:translate(-50%,-50%);
+    /*display: none;*/
+    width:100%;
+    height: 100%;
+    text-align:center;
+    line-height: 100px;
+}
+
+.comment_fixed ul .cancle a{
+    font-size: 1.5rem;
+    color:#999;
+    display: inline-block;
+}
+
+@media (max-width: 480px){
+    /* 底部固定块的480以下的媒体查询  配合html的字号的大小改变*/
+
+    .comment_fixed ul{
+        height: 40px;
+        padding:5px 10px;
+    }
+
+    .comment_fixed ul li a img{
+        vertical-align: top;
+        width: 20px;
+        min-width: 20px;
+    }
+
+
+    .comment_fixed ul li:nth-child(5) a img{
+        width: 20px;
+        min-width: 20px;
+    }
+
+    .comment_fixed ul li:nth-child(5) a span.num{
+        font-size: 10px;
+    }
+
+    .comment_fixed ul li{
+        line-height: 30px;
+    }
+
+    .comment_fixed ul .cancle{
+        line-height: 40px;
+    }
+
+    .comment_txt>span:last-child{
+        left:20px;
+    }
+
+    .comment_fixed ul li img.back{
+        height: 21px;
+        width: 21px;
+        min-width:0;
+    }
+}

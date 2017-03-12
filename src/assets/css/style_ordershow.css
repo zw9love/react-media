@@ -1,0 +1,66 @@
+    /*内容块的样式*/
+
+    .page_explain{
+        text-align: left;
+        margin-top:1.7rem;
+    }
+
+    .page_title{
+        font-size: 1.4rem;
+        text-align: center;
+        color: #333;
+    }
+
+    .page_header{
+        margin-top:1.4rem;
+        border-bottom: none;
+        height:auto;
+    }
+
+    .page_info{
+        margin-top:1rem;
+        font-size: 1.2rem;
+        color:#999;
+        line-height: 1.9rem;
+    }
+
+    .page_header>img{
+        width: 16.66%;
+        vertical-align: top;    
+    }
+
+    .page_header .back{
+        position: absolute;
+        left:1.2rem;
+    }
+
+    .page_header .back img{
+        top:0;
+        transform:translateY(0);
+        -webkit-transform:translateY(0);
+    }
+
+    /*修改订阅块的添加订阅按钮样式*/
+
+    .main_order_select{
+        top:0%;
+        transform:translateY(0);
+        -webkit-transform:translateY(0);
+        right:1.2rem;
+    }
+
+    @media (max-width:480px){
+
+        /* 页面字号480以下的媒体查询  配合html的字号的大小改变*/
+
+        .page_title{
+            font-size: 16px;
+        }
+
+        .page_info{
+            font-size: 14px;
+            line-height: 22px;
+        }
+
+    }
+    

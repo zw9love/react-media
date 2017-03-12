@@ -1,0 +1,75 @@
+    /*show_movie修改的样式*/
+
+    body{
+        padding: 0;
+    }
+    .main{
+        padding: 0 1.2rem;
+        box-sizing:border-box;
+    }
+
+
+    .movie{
+        position: relative;
+        padding-top: 56.25%;
+        /*margin-top:1rem;*/
+    }
+
+    .movie #video{
+        position: absolute;
+        width:100%;
+        height: 100%;
+        left:0;
+        top:0;
+        display: none;
+    }
+
+
+    .movie img{
+        position: absolute;
+        width:100%;
+        height: 100%;
+        left:0;
+        top:0;
+        z-index: 100;
+    }
+
+    .movie .media_info_movie{
+        width:16%;
+        padding-top:16%;
+        position: absolute;
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);
+        -webkit-transform:translate(-50%,-50%);
+        background:rgba(0,0,0,0.6);
+        border:2px solid #fff;
+        border-radius: 50%;
+        display: block;
+        z-index: 101;
+    }
+
+
+    .movie .media_info_movie>span{
+        position: absolute;
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);
+        -webkit-transform:translate(-50%,-50%);
+        border-left:2.2rem solid #fff;
+        border-right:0px solid transparent;
+        border-top:1.3rem solid transparent;
+        border-bottom:1.3rem solid transparent;
+        border-radius: 2px;
+
+    }
+
+    .movieshow{
+        display: block!important;
+    }
+
+    @media (max-width:480px){
+        .movie .media_info_movie{
+            border:1px solid #fff;
+        }
+    }

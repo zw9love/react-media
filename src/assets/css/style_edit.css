@@ -1,0 +1,73 @@
+/*编辑块样式*/
+
+    .comment{
+        /*overflow: hidden;*/
+        width:200%;
+    }
+
+    .comment:after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    .comment_left{
+        float: left;
+        width:4rem;
+        padding-top:15.6%;
+        max-width: 80px;
+        cursor:pointer;
+        position: relative;
+        /*display: none;*/
+    }
+
+    .comment_left>div{
+        width:55%;
+        height:2.2rem;
+        position: absolute;
+        left:0%;
+        top:50%;
+        transform:translateY(-50%);
+        -webkit-transform:translateY(-50%);
+        border-radius: 50%;
+        border:2px solid #e92230;
+    }
+
+    .comment_left>div>span{
+        position: absolute;
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);
+        -webkit-transform:translate(-50%,-50%);
+        height: 2px;
+        width:50%;
+        background: #e92230;
+    }
+
+    .comment_right{
+        float: left;
+        width: 50%;
+    }
+
+    .show{
+        display: block;
+    }
+
+    @media (max-width: 480px){
+
+        /*模态框480以下样式*/
+
+        .no_comment>p{
+            font-size: 14px;
+        }
+
+        .comment_left>div{
+            border:1px solid #e92230;
+        }
+
+        .comment_left>div>span{
+            height: 1px;
+        }
+        
+
+    }

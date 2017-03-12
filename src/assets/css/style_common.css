@@ -1,0 +1,102 @@
+    
+    /*tpl所有页面公共样式*/
+    
+    *{
+        font-family: PingFang-Medium, PingFangSC-Regular, "Microsoft YaHei";
+        text-decoration: none;
+        color:#333;
+        word-wrap:break-word;
+        word-break:break-all;
+    }
+
+    html{
+        font-size: 20px;
+        overflow-x: hidden;
+        height: 100%;
+        -webkit-text-size-adjust:none;
+        -ms-touch-action: none;
+        -webkit-touch-action: none;
+        touch-action: none;
+    }
+
+    body{
+        /*padding:0 1.2rem;*/
+        position: relative;
+        max-width: 768px;
+        min-width: 320px;
+        margin: 0 auto;
+        box-sizing:border-box;
+        overflow-x: hidden;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .container{
+        padding:0 1.2rem;
+    }
+
+    /*有返回键的块的样式*/
+
+    .page_header{
+        text-align: center;
+        position: relative;
+        margin-top: 1.25rem;
+        overflow: hidden;
+        font-size: 1.7rem;
+        line-height: 60px;
+        padding:0 1.2rem;
+        border-bottom: 1px solid #e8e8e8;
+    }
+
+
+    .page_header .back{
+        position: absolute;
+        width:58px;
+        height: 60px;
+        text-align: center;
+        left:1.2rem;
+        /*top:15px;*/
+        cursor: pointer;
+        float: left;
+    }
+
+    .page_header .back img{
+        width:auto;
+        height:50%;
+        position: absolute;
+        left:0;
+        top:50%;
+        transform:translateY(-50%);
+        -webkit-transform:translateY(-50%);
+    }
+
+    .page_header>span:nth-child(2){
+        position: absolute;
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);
+        -webkit-transform:translate(-50%,-50%);
+    }
+
+    .page_header>span.move{
+        display: block;
+        float: right;
+    }
+
+    .page_header>span.move a{
+        font-size: 1.5rem;
+        color:#333;
+    }
+
+    /*分割线样式*/
+
+    .show{
+        display: block;
+    }
+
+    .hide{
+        display: none;
+    }
+
+    .noscroll{
+        overflow: hidden;
+    }

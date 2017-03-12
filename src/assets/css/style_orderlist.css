@@ -1,0 +1,208 @@
+    /*头部返回的样式*/
+
+    .container{
+        padding:0 1.2rem;
+    }
+
+    /*页面的类似搜索块的样式*/
+
+    .add_container{
+        padding:0 1.2rem;
+    }
+
+    .media_search_orderlist{
+        margin-top:1.5rem;
+        height: 3rem;
+        text-align: center;
+        position: relative;
+        line-height: 3rem;
+        cursor: pointer;
+        overflow: hidden;
+    }
+
+    .media_search_orderlist>div.bottom{
+        position: absolute;
+        left:0;
+        top:0;
+        width:100%;
+        height:100%;
+        outline: none;
+        border-radius: 30px;
+        border:1px solid #ea303d;
+        background: transparent;
+        text-indent: 30px;
+        box-sizing: border-box;
+    }
+
+    .media_search_orderlist .big_add{
+        position: absolute;
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);
+        -webkit-transform:translate(-50%,-50%);
+        box-sizing:border-box;
+        padding-left: 26px;
+    }
+
+    .media_search_orderlist div.add{
+        width:24px;
+        height: 24px;
+        border:1px solid #e92230;
+        border-radius: 50%;
+        position: absolute;
+        left:0%;
+        top:50%;
+        transform:translateY(-50%);
+        -webkit-transform:translateY(-50%);
+    }
+
+    .media_search_orderlist div.add>span:first-child{
+        position: absolute;
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);
+        -webkit-transform:translate(-50%,-50%);
+        width:80%;
+        height: 1px;
+        background: #e92230;
+    }
+
+    .media_search_orderlist div.add>span:last-child{
+        position: absolute;
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);
+        -webkit-transform:translate(-50%,-50%);
+        width:1px;
+        height: 80%;
+        background: #e92230;
+    }
+
+
+    .media_search_orderlist .big_add>span{
+        display: inline-block;
+        /*margin-top:14px;*/
+        font-size: 1.2rem;
+        color:#ea303d;
+
+    }
+
+    /*订阅块的样式*/
+
+    #orderlist .main_order{
+        margin-top:0px;
+    }
+
+    #orderlist .main_order:first-child{
+        margin-top:2.5rem;            
+    }
+
+    #orderlist .main_order>a{
+        display: inline-block;
+        overflow: hidden;
+        position: relative;
+    }
+
+
+    #orderlist .main_order_info{
+        width:61.38%;
+
+    }
+
+
+    #orderlist .main_order_info>p:last-child{
+        width:100%;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+        font-size: 1rem;
+        color:#707070;
+/*            -webkit-line-clamp:1;
+        -webkit-box-orient:vertical;
+        display:-webkit-box;*/
+    }
+
+    /*时间，数量的样式*/
+
+    #time{
+        font-size:1rem;
+        color:#999;
+        position: absolute;
+        right:0;
+        top:0;
+    }
+
+    #orderlist .num{
+        width:1.8rem;
+        height:1.8rem;
+        position: absolute;
+        right:0;
+        top:0;
+        background: #e92230;
+        border-radius: 50%;
+        text-align: center;
+        line-height:1.8rem;
+        color:#fff;
+    }
+
+    /*无订阅块*/
+
+     .noorder{
+            font-size: 1.2rem;
+            color:#999;
+            position:fixed;
+            left:50%;
+            top:50%;
+            transform:translate(-50%,-50%);
+            -webkit-transform:translate(-50%,-50%);
+            display: none;
+    }
+    
+    
+    @media (max-width:480px){
+
+        /* 显示的搜索块480以下的媒体查询  配合html的字号的大小改变*/
+       
+        .media_search_orderlist{
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .media_search_orderlist .big_add{
+            padding-left: 16px;
+        }
+
+        .media_search_orderlist div.add{
+            width:14px;
+            height: 14px;
+        }
+
+        .media_search_orderlist .big_add>span{
+            font-size: 12px;
+        }
+
+        /* 订阅块的480以下的媒体查询  配合html的字号的大小改变*/
+        #orderlist .main_order_info{
+            width:60%;
+        }
+
+
+        /*时间，数量480以下样式*/
+
+        #orderlist #time{
+            font-size:12px;
+        }
+
+        #orderlist  .num{
+            width:20px;
+            height: 20px;
+            line-height: 20px;
+        }
+
+        /*无订阅块480px样式*/
+
+        .noorder{
+            font-size: 16px;
+        }
+
+    }

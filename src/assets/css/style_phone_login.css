@@ -1,0 +1,245 @@
+    
+    /*登录输入块*/
+
+    .page_header .back{
+        position: relative;
+        left:0;
+    }
+
+    #phone .container{
+        margin-top:2.5rem;
+        padding:0 1.2rem;
+    }
+
+    #phone .login_block1{
+        height: 4rem;
+        margin-top:3.3rem;
+    }
+
+    #phone .login_block1>input,#phone .login_block2>input{
+        display: block;
+        width: 100%;
+        height: 100%;
+        font-size: 1.4rem;
+        color:#999;
+        text-indent: 2rem;
+        border-radius: 2rem;
+        border:1px solid #666;
+        outline: none;
+        box-sizing:border-box;
+    }
+
+    #phone .login_block2{
+        overflow: hidden;
+        height: 4rem;
+        margin-top:1.5rem;
+    }
+
+    #phone .login_block2>input{
+        float: left;
+        width:62.67%;
+    }
+
+    #phone .login_block2>span{
+        display: block;
+        width:32.76%;
+        height: 100%;
+        font-size: 1.4rem;
+        line-height: 4rem;
+        border-radius: 2rem;
+        border:1px solid #666;
+        color:#999;
+        float:right;
+        box-sizing:border-box;
+        text-align: center;
+        cursor: pointer;
+    }
+
+
+    /*登录选择块*/
+
+    #phone .phone_login_choose{
+        margin-top:9.4rem;
+        text-align: center;
+    }
+
+    #phone .phone_login_choose>p{
+        text-align: center;
+        font-size: 1.4rem;
+        color:#333;
+    }
+
+    #phone .phone_login_choose ul{
+        overflow: hidden;
+        margin-top:2.5rem;
+        box-sizing:border-box;
+        padding: 0 20%;
+        position: relative;
+    }
+
+    #phone .phone_login_choose ul li{
+        width:21.56%;
+        text-align: center;
+        float: left;
+        /*padding:0 10%;*/
+        box-sizing:border-box;
+    }
+
+    #phone .phone_login_choose ul li:last-child{
+        float: right;
+    }
+
+    #phone .phone_login_choose ul li:nth-child(2){
+        width:13%;
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        -webkit-transform:translate(-50%,-50%);
+    }
+
+    #phone .phone_login_choose ul li a{
+        display: inline-block;
+        font-size: 1.2rem;
+        color:#333;
+    }
+
+    #phone .phone_login_choose ul li img{
+        width:100%;
+        vertical-align: middle;
+    }
+
+    /*确认登录块*/
+    #phone .login_sure{
+        margin-top:1.5rem;
+    }
+
+    #phone .login_sure a{
+        display: block;
+        width:100%;
+        height: 4rem;
+        text-align: center;
+        line-height: 4rem;
+        color:#999;
+        background: #eee;
+        border-radius: 2rem;
+        font-size: 1.5rem;
+    }
+
+    #phone .login_sure a.hover{
+        background: #e92230;
+        color:#fff;
+    }
+
+    /*阴影块样式*/
+    #phone .shadow{
+        width:100%;
+        height: 100%;
+        background: rgba(0,0,0,.5);
+        position: fixed;
+        left:0;
+        top:0;
+        z-index: 100;
+        display: none;
+    }
+
+    /*模态框样式*/
+    #phone .model{
+        width:270px;
+        height: 121px;
+        background: #fff;
+        position: fixed;
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);
+        -webkit-transform:translate(-50%,-50%);
+        z-index: 101;
+        max-width: 522px;
+        border-radius: 10px;
+    }
+
+    #phone .model>p{
+        text-align: center;
+        height: 77px;
+        font-size: 18px;
+        border-bottom: 1px solid #e8e8e8;
+        line-height: 77px;
+    }
+
+    #phone .model>div{
+        height: 44px;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+    #phone .model>div>button{
+        float: left;
+        display: block;
+        height: 44px;
+        width:100%;
+        box-sizing:border-box;
+        text-align: center;
+        line-height: 44px;
+        font-size: 18px;
+        color:#e92230;
+        border:none;
+        outline: none;
+        cursor: pointer;
+        background: #fff;
+        text-align: center;
+    }
+
+
+
+    @media (max-width:480px){
+
+        /*登录选择块的480以下的样式*/
+
+        #phone .phone_login_choose{
+            margin-top:5rem;
+        }
+        
+        #phone .phone_login_choose>p{
+            font-size: 12px;
+        }
+
+        #phone .phone_login_choose ul{
+            margin-top:40px;
+        }
+
+        #phone .phone_login_choose ul li a{
+            font-size: 12px;
+        }
+
+        /*登录输入块的480以下的样式*/
+        #phone .login_block1,#phone .login_block2{
+            height: 36px;
+        }
+
+        #phone .login_block1>input,#phone .login_block2>input{
+            font-size: 14px;
+            text-indent: 20px;
+            border-radius: 18px;
+        }
+
+        #phone .login_block2>span{
+            font-size: 14px;
+            border-radius: 18px;
+            line-height: 36px;
+        }
+        
+        /*确认登录块的480以下的样式*/
+
+        #phone .login_sure a{
+            height: 36px;
+            line-height: 36px;
+            border-radius: 18px;
+            font-size: 14px;
+        }
+
+        /*模态框480以下样式*/
+
+        #phone .model>p,#phone .model>div>button{
+            font-size: 14px;
+        }
+    }

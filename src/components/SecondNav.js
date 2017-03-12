@@ -13,22 +13,22 @@ export default React.createClass({
     getInitialState(){
         return{
             SecondNavList: [
-                {name:'咨询',isactive:true,href:"#/industry/1"},
-                {name:'人物666',isactive:false,href:"#/industry/1"},
-                {name:'买手',isactive:false,href:"#/industry/1"},
-                {name:'设计师',isactive:false,href:"#/industry/1"},
-                {name:'贺喜时尚111',isactive:false,href:"#/industry/1"},
-                {name:'贺喜时尚222',isactive:false,href:"#/industry/1"},
-                {name:'贺喜时尚333',isactive:false,href:"#/industry/1"},
-                {name:'贺喜时尚444',isactive:false,href:"#/industry/1"},
-                {name:'贺喜时尚555',isactive:false,href:"#/industry/1"},
-                {name:'贺喜时尚666',isactive:false,href:"#/industry/1"},
+                {name:'咨询',isactive:true,href:"#/industry/1/0"},
+                {name:'人物666',isactive:false,href:"#/industry/1/1"},
+                {name:'买手',isactive:false,href:"#/industry/1/2"},
+                {name:'设计师',isactive:false,href:"#/industry/1/3"},
+                {name:'贺喜时尚111',isactive:false,href:"#/industry/1/4"},
+                {name:'贺喜时尚222',isactive:false,href:"#/industry/1/5"},
+                {name:'贺喜时尚333',isactive:false,href:"#/industry/1/6"},
+                {name:'贺喜时尚444',isactive:false,href:"#/industry/1/7"},
+                {name:'贺喜时尚555',isactive:false,href:"#/industry/1/8"},
+                {name:'贺喜时尚666',isactive:false,href:"#/industry/1/9"},
             ]
         }
     },
     componentDidMount(){
-        var index=this.props.index;
-        this.refs.mynav.myclick(index);
-        // console.log(this.props.changeIndex);
+        var index=this.props.params.index || this.props.index;
+        this.refs.mynav.refs['li'+index].handleClick();
+        // console.log(this.props.params);
     }
 })

@@ -8,11 +8,18 @@ export default React.createClass({
             classname: this.props.flag === 'first' ? 'current' : 'menucurrent'
         }
     },
-    handleClick: function () {
+    handleClick: function (event) {
+        // event.stopPropagation();
         this.props.navClick();
         this.setState({isactive: true})
         this.horizontally($(this.refs.self));
         // this.props.changeIndex(this.props.index);
+        if(this.props.flag === 'second'){
+            // console.log(this.props.index);
+            // alert(1)
+           // this.props.setIndex(100);
+        }
+
     },
     horizontally(obj){
         obj.parent().removeAttr('class');

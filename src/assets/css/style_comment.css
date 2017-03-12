@@ -1,0 +1,141 @@
+    
+    /*评论块的样式*/
+
+    .main_comment{
+        overflow: hidden;
+        height: 34px;
+        position: absolute;
+        overflow: hidden;
+        right:0;
+        top:50%;
+        transform:translateY(-50%);
+        -webkit-transform:translateY(-50%);
+        /*background: yellow;*/
+
+    }
+
+
+    .main_comment_contain{
+        height: 100%;
+        float: right;
+        line-height: 34px;
+        font-size: 1.2rem;
+        color:#333;
+        overflow: hidden;
+        position: relative;
+        /*background: yellow;*/
+    }
+
+    .main_comment_contain:last-child{
+        margin-right:2rem;
+    }
+
+    .main_comment_contain img{
+        float: right;
+        margin-left:10px;
+    }
+
+
+    .main_comment_msg{
+        padding-left:4rem; 
+        box-sizing:border-box;
+    }
+
+    .main_comment_owner{
+        font-size: 1.2rem;
+        color:#333;
+        font-weight: 400;
+        box-sizing:border-box;
+        padding-left: 1.5rem;
+        margin-top:10px;
+
+    }
+
+    .main_comment_owner>p{
+        /*text-align: center;*/
+        margin-top:1.5rem;
+        line-height: 2rem;
+    }
+
+    .main_comment_owner p.more{
+        text-align: center;
+        margin-top:1.5rem;
+    }
+
+    .main_comment_owner p a{
+        font-size: 1.2rem;
+        color:#70b9f0;
+        
+    }
+
+    .main_comment_other{
+        width:100%;
+    }
+
+    .main_comment_other>p{
+        font-size: 1.2rem;
+        color:#333;
+        line-height: 50px;
+    }
+
+    .main_comment_other span.main_comment_name a{
+        color:#70b9f0;
+    }
+
+    @media (max-width: 480px){
+        
+        /* 评论块的480以下的媒体查询  配合html的字号的大小改变*/
+
+            .main_comment_contain{
+                font-size: 0px;
+                line-height: normal;
+            }
+
+            .main_comment_contain span{
+                vertical-align:middle;   
+                display:inline-block;   
+                font-size:10px;
+            }
+
+            .main_comment_contain:after{  
+                content:'';  
+                width:0;  
+                height:100%;  
+                display:inline-block;  
+                vertical-align:middle;
+            }
+
+            .main_comment_contain img{
+                width:auto;
+                height: 14px;
+                vertical-align: middle;
+                margin-top:10px;
+            }
+
+            .main_comment_contain:last-child{
+                margin-right: 15px;
+            }
+
+            .main_comment_owner{
+                font-size: 14px;
+            }
+
+            .main_comment_other span.main_comment_name a{
+                font-size: 13px;
+            }
+
+            .main_comment_owner>p{
+                line-height: 22px;
+            }
+
+            .main_comment_owner>p a{
+                font-size: 14px;
+            }
+
+            .main_comment_other>p{
+                font-size: 14px;
+                line-height: 20px;
+                margin-top:10px;
+            }
+
+    }
