@@ -6,7 +6,7 @@ export default React.createClass({
     render(){
         return (
             <div className="menu">
-                <MyNav idName="wrapper2" flag="second" list={this.state.SecondNavList} ref="mynav"/>
+                <MyNav idName="wrapper2" flag="second" list={this.state.SecondNavList} changeIndex={this.props.changeIndex} ref="mynav"/>
             </div>
         )
     },
@@ -29,6 +29,5 @@ export default React.createClass({
     componentDidMount(){
         var index=this.props.params.index || this.props.index;
         this.refs.mynav.refs['li'+index].handleClick();
-        // console.log(this.props.params);
     }
 })

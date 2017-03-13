@@ -3,13 +3,13 @@ import MyNav from './MyNav';
 import '../assets/css/style_firstnav.css';
 
 export default React.createClass({
-    myInfo(event){
-        event.stopPropagation();
+    myInfo(e){
+        e.stopPropagation();
         this.props.moreInfo(true);
     },
     render:function(){
         return (
-            <div className="header_contain">
+            <div className="header_contain" onLoad={this.myInfo}>
                 <header className="media_header">
                     <a href="javascript:;" onClick={this.myInfo}>
                         <img src={require("../assets/img/nav.png")} alt="" />

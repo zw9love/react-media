@@ -9,13 +9,8 @@ import $ from 'jquery'
 class App extends Component {
     constructor(props){
         super(props);
-        // this.forSecond = this.forSecond.bind(this);
         this.moreInfo = this.moreInfo.bind(this);
         this.quit = this.quit.bind(this);
-        var self=this;
-        this.changeIndex=function(val){
-            self.state.index=val;
-        }
     }
 
     state = {
@@ -30,6 +25,10 @@ class App extends Component {
         ],
         index:0,
         isactive:false
+    }
+
+    changeIndex(val){
+        this.setState({index:val})
     }
 
     moreInfo(val){
@@ -52,14 +51,14 @@ class App extends Component {
         return (
             <div className="home">
                 <MyAside ref="myaside" quit={this.quit}/>
-                <HomeShadow ref="homeshadow" quit={this.quit}/>
+                    <HomeShadow ref="homeshadow" quit={this.quit}/>
                 <div className={this.state.isactive ? "home_container go_contain" : "home_container"} onClick={this.moreInfo}>
                     <div className={this.state.isactive ? "contain_shadow go_shadow" : "contain_shadow"}></div>
                     <FirstNav ref="firstnav" moreInfo={this.moreInfo}/>
                     {/*给子路由传参*/}
                     {this.props.children && React.cloneElement(this.props.children, {
                         index: this.state.index,
-                        changeIndex:this.changeIndex
+                        changeIndex:this.changeIndex.bind(this)
                     })}
 
                     <section className="media_info">

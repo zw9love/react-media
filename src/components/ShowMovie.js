@@ -10,7 +10,7 @@ export default React.createClass({
     render(){
         return(
             <div className={this.state.isactive ? "movie" : "movie hide"}>
-                <video src="http://localhost:8080/src/assets/video/go.mp4"  id="video" ></video>
+                <video src={require("../assets/video/go.mp4")}  id="video" ></video>
                 <img src={require("../assets/img/movie.jpg")} alt="" />
                     <a href="javascript:;">
                         <div className="media_info_movie">

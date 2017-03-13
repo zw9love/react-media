@@ -15,9 +15,7 @@ export default React.createClass({
         this.horizontally($(this.refs.self));
         // this.props.changeIndex(this.props.index);
         if(this.props.flag === 'second'){
-            // console.log(this.props.index);
-            // alert(1)
-           // this.props.setIndex(100);
+            this.props.changeIndex(this.props.index)
         }
 
     },

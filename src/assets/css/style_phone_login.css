@@ -55,6 +55,11 @@
         cursor: pointer;
     }
 
+    #phone .login_block2>span.hover{
+        border:1px solid #e92230;
+        color:#e92230;
+    }
+
 
     /*登录选择块*/
 
