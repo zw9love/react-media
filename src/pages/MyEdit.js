@@ -3,9 +3,13 @@ import MyTitle from '../components/MyTitle'
 import '../assets/css/style_common.css'
 import '../assets/css/style_noComment.css'
 import EditShadow from '../components/EditShadow'
-import { hashHistory } from 'react-router'
+// import { hashHistory } from 'react-router'
+import Cookie from '../assets/js/Cookie'
 
 export default React.createClass({
+    componentDidMount(){
+        Cookie.myCookie.setCookie('backHome',true)
+    },
     edit(){
         var obj = this.refs.mychild;
         obj.setState({isactive:!obj.state.isactive})
@@ -25,7 +29,7 @@ export default React.createClass({
     render(){
         return(
             <div>
-                <MyTitle title={this.state.myTitle} name="编辑" ref="mytitle" edit={this.edit}/>
+                <MyTitle title={this.state.myTitle}  name="编辑" ref="mytitle" edit={this.edit}/>
 
                 <EditShadow ref="shadow" getDom={this.getDom} noCommentState={this.noCommentState} length={this.props.location.search.slice(1) === 'like' ? this.state.likeList.length : this.state.recommendList.length}/>
 

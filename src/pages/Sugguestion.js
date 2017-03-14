@@ -3,9 +3,13 @@ import MyTitle from '../components/MyTitle'
 import '../assets/css/style_common.css'
 import '../assets/css/style_sugguestion.css'
 // import reactMixin from 'react-mixin';
+import Cookie from '../assets/js/Cookie'
 
 
 export default React.createClass({
+    componentDidMount(){
+        Cookie.myCookie.setCookie('backHome',true)
+    },
     getInitialState(){
         return{
             val1:'',

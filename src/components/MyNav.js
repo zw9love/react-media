@@ -100,7 +100,7 @@ export default React.createClass({
                     {
                         this.props.list.map(function (msg, i) {
                             return <NavLi setIndex={self.setIndex} key={i} data={msg} navClick={self.myclick} flag={self.props.flag}
-                                          ref={"li" + i}  index={i} changeIndex={self.props.changeIndex}/>
+                                          ref={"li" + i}  index={i} />
                         })
                     }
                 </ul>

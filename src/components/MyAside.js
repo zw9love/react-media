@@ -19,7 +19,7 @@ export default React.createClass({
                     {
                         this.state.asideList.map(function(msg,i){
                             return (
-                                <AsideLi key={i} data={msg} index={i} quit={self.props.quit}/>
+                                <AsideLi key={i} data={msg} index={i} quit={self.props.quit} myself={self.props.myself}/>
                             )
                         })
                     }

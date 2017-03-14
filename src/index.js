@@ -21,6 +21,8 @@ import './assets/css/style_index.css';
 import $ from 'jquery'
 //hashHistory  browserHistory  createMemoryHistory
 
+var hello='666';
+
 ReactDOM.render(
 
     <Router history={hashHistory}>
@@ -28,7 +30,7 @@ ReactDOM.render(
             {/*默认的路由组件是<Search />*/}
             <IndexRoute component={Search}/>
             <Route path="/industry/:id" component={SecondNav}/>
-            <Route path="/industry/:id/:index" component={SecondNav}/>
+            {/*<Route path="/industry/:id/:index" component={SecondNav}/>*/}
             <Route path="/order/:id" component={OrderSearch}/>
         </Route>
         <Route path="/show" component={Show} />

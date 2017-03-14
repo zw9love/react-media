@@ -5,6 +5,7 @@ import RecommendEach from '../components/RecommendEach'
 import HomeShadow from '../components/HomeShadow'
 import MyAside from '../components/MyAside'
 import $ from 'jquery'
+import Cookie from '../assets/js/Cookie'
 
 class App extends Component {
     constructor(props){
@@ -24,11 +25,8 @@ class App extends Component {
             ]
         ],
         index:0,
-        isactive:false
-    }
-
-    changeIndex(val){
-        this.setState({index:val})
+        isactive:false,
+        backHome:null
     }
 
     moreInfo(val){
@@ -47,18 +45,23 @@ class App extends Component {
         $('html,body').toggleClass('noscroll')
     }
 
+    test(val,e){
+        console.log(val)
+        console.log(e.target)
+    }
+
     render() {
         return (
             <div className="home">
-                <MyAside ref="myaside" quit={this.quit}/>
-                    <HomeShadow ref="homeshadow" quit={this.quit}/>
+                <MyAside ref="myaside" quit={this.quit} myself={this}/>
+                <HomeShadow ref="homeshadow" quit={this.quit}/>
+                {/*<h1 onClick={this.test.bind(this,20)}>测试一下</h1>*/}
                 <div className={this.state.isactive ? "home_container go_contain" : "home_container"} onClick={this.moreInfo}>
                     <div className={this.state.isactive ? "contain_shadow go_shadow" : "contain_shadow"}></div>
-                    <FirstNav ref="firstnav" moreInfo={this.moreInfo}/>
+                    <FirstNav ref="firstnav" moreInfo={this.moreInfo} backHome={this.state.backHome} />
                     {/*给子路由传参*/}
                     {this.props.children && React.cloneElement(this.props.children, {
-                        index: this.state.index,
-                        changeIndex:this.changeIndex.bind(this)
+                        index: this.state.index
                     })}
 
                     <section className="media_info">
@@ -74,6 +77,9 @@ class App extends Component {
     }
 
     componentDidMount(){
+        // console.log(1)
+        if(Cookie.myCookie.getCookie('backHome')) this.moreInfo(true) ;
+        Cookie.myCookie.deleteCookie('backHome');
         var id=this.props.params.id;
         if(!id) return;
         this.refs.firstnav.refs.mynav.refs['li'+id].handleClick();
@@ -84,6 +90,8 @@ class App extends Component {
             'perspective':'600px',
             '-webkit-perspective':'600px'
         });
+
+        this.setState({backHome:this.props.location.state})
     }
 
     componentWillUnmount(){

@@ -1,7 +1,8 @@
 import React from 'react'
 import MyLine from './MyLine'
+import { hashHistory } from 'react-router'
 export default React.createClass({
-    quit(){
+    jump(e){
         if(this.props.index === 4){
             this.props.quit();
         }
@@ -9,7 +10,7 @@ export default React.createClass({
     render(){
         return(
             <div>
-                <a href={this.props.data.href} onClick={this.quit}>
+                <a href={this.props.data.href} onClick={this.jump} >
                     <li>
                         <img src={this.props.data.src} alt="" />
                         <span>{this.props.data.info}</span>

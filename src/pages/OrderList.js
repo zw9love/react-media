@@ -4,8 +4,12 @@ import '../assets/css/style_orderlist.css'
 import MyTitle from '../components/MyTitle'
 import OrderListLi from '../components/OrderListLi'
 import { hashHistory } from 'react-router'
+import Cookie from '../assets/js/Cookie'
 
 export default React.createClass({
+    componentDidMount(){
+        Cookie.myCookie.setCookie('backHome',true)
+    },
     getInitialState(){
         return{
             list:[
