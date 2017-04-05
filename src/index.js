@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route,IndexRoute, hashHistory } from 'react-router'
+import { Router, Route,IndexRoute, hashHistory ,browserHistory} from 'react-router'
 import Home from './pages/Home';
 import Show from './pages/Show';
 import RecommendSearch from './pages/RecommendSearch';
@@ -16,36 +16,47 @@ import OrderSearch from './components/OrderSearch'
 import Search from  './components/Search'
 import MyLike from  './components/MyLike'
 import MyComment from  './components/MyComment'
+import { createStore,combineReducers } from 'redux'
+import { Provider } from 'react-redux'
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 // import Recommend from  './components/Recommend'
 import './assets/css/style_index.css';
 import $ from 'jquery'
+import {editShadowReducer} from './components/EditShadow'
 //hashHistory  browserHistory  createMemoryHistory
 
-var hello='666';
+const reducers = combineReducers({
+    editShadowReducer,
+    routing: routerReducer
+})
+
+const store = createStore(reducers);
+const history = syncHistoryWithStore(browserHistory, store)
 
 ReactDOM.render(
-
-    <Router history={hashHistory}>
-        <Route path="/" component={Home}>
-            {/*默认的路由组件是<Search />*/}
-            <IndexRoute component={Search}/>
-            <Route path="/industry/:id" component={SecondNav}/>
-            {/*<Route path="/industry/:id/:index" component={SecondNav}/>*/}
-            <Route path="/order/:id" component={OrderSearch}/>
-        </Route>
-        <Route path="/show" component={Show} />
-        <Route path="/search" component={RecommendSearch} />
-        <Route path="/orderlist" component={OrderList} />
-        <Route path="/subscribe" component={SubscribeSearch} />
-        <Route path="/myedit" component={MyEdit}>
-            <Route path="mylike" component={MyLike} />
-            <Route path="mycomment" component={MyComment} />
-        </Route>
-        <Route path="/sugguestion" component={Sugguestion} />
-        <Route path="/loginlist" component={LoginList} />
-        <Route path="/phonelogin" component={PhoneLogin} />
-        <Route path="/ordershow" component={OrderShow} />
-    </Router>,
+    <Provider store={store}>
+        <Router history={hashHistory}>
+            <Route path="/" component={Home}>
+                {/*默认的路由组件是<Search />*/}
+                <IndexRoute component={Search}/>
+                <Route path="/industry/:id" component={SecondNav}/>
+                {/*<Route path="/industry/:id/:index" component={SecondNav}/>*/}
+                <Route path="/order/:id" component={OrderSearch}/>
+            </Route>
+            <Route path="/show" component={Show} />
+            <Route path="/search" component={RecommendSearch} />
+            <Route path="/orderlist" component={OrderList} />
+            <Route path="/subscribe" component={SubscribeSearch} />
+            <Route path="/myedit" component={MyEdit}>
+                <Route path="mylike" component={MyLike} />
+                <Route path="mycomment" component={MyComment} />
+            </Route>
+            <Route path="/sugguestion" component={Sugguestion} />
+            <Route path="/loginlist" component={LoginList} />
+            <Route path="/phonelogin" component={PhoneLogin} />
+            <Route path="/ordershow" component={OrderShow} />
+        </Router>
+    </Provider>,
   document.getElementById('root')
 );
 

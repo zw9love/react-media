@@ -2,7 +2,7 @@ import React from 'react'
 import MyTitle from '../components/MyTitle'
 import '../assets/css/style_common.css'
 import '../assets/css/style_noComment.css'
-import EditShadow from '../components/EditShadow'
+import {EditShadow} from '../components/EditShadow'
 // import { hashHistory } from 'react-router'
 import Cookie from '../assets/js/Cookie'
 
@@ -16,7 +16,8 @@ export default React.createClass({
         // this.refs.shadow.setState({isactive:!this.refs.shadow.state.isactive})
     },
     shadowState(){
-        this.refs.shadow.setState({isactive:!this.refs.shadow.state.isactive});
+        //this.refs.shadow.selector.setState({isactive:!this.refs.shadow.state.isactive});
+        return this.refs.shadow;
     },
     getDom(){
         var obj = this.refs.mychild;
