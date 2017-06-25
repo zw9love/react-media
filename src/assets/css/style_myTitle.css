@@ -1,0 +1,52 @@
+
+.page_header {
+    position: fixed;
+    padding: 5px 0;
+    border-bottom: 1px solid #e8e8e8;
+    height:50px;
+    max-width: 600px;
+    width:100%;
+    background-color:#fff;
+    z-index: 100;
+    left:50%;
+    top:0;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+}
+
+.page_header .back {
+    height: 50px;
+    padding:0 1.2rem;
+}
+
+.back > img {
+    width: 25px;
+    padding-right: 10px;
+    cursor: pointer;
+    position: absolute;
+    left:1.2rem;
+    top:50%;
+    transform:translateY(-50%);
+    -webkit-transform:translateY(-50%);
+}
+
+.page-title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    font-size: 1.8rem;
+}
+
+.page-edit{
+    position: absolute;
+    right:1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    font-size: 1.6rem;
+    cursor: pointer;
+}

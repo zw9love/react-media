@@ -1,107 +1,40 @@
-/*隐藏的搜索块样式*/
+/*页面的搜索块的样式*/
 
-    .page_hide{
-        position: relative;
-        width: 100%;
-        box-sizing:border-box;
-        background: #fff;
-        overflow: hidden;
-        padding:15px 0 15px 3rem;
-    }
+.search_contain{
+    margin-top: 6rem;
+}
 
-    .page_hide .back{
-        position: absolute;
-        width:2.9rem;
-        height: 60px;
-        text-align: center;
-        left:0;
-        top:15px;
-        cursor: pointer;
-    }
+.media_search {
+    margin-top: 1.5rem;
+    height: 3rem;
+    text-align: center;
+    position: relative;
+    line-height: 3rem;
+    cursor: pointer;
 
-    .page_hide .back img{
-        width:auto;
-        height:50%;
-        position: absolute;
-        left:0%;
-        top:50%;
-        transform:translateY(-50%);
-        -webkit-transform:translateY(-50%);
-    }
+}
 
-    .media_search_hide{
-        height: 60px;
-        text-align: left;
-        position: relative;
-        line-height: 60px;
-        cursor: pointer;
-    }
+.media_search > div {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    border: 1px solid #d3d3d3;
+    background: transparent;
+    box-sizing: border-box;
+}
 
-    .media_search_hide>input{
-        position: absolute;
-        left:0;
-        top:0;
-        width:100%;
-        height:100%;
-        outline: none;
-        border-radius: 30px;
-        border:1px solid #d3d3d3;
-        text-indent: 30px;
-        background: transparent;
-        box-sizing:border-box;
-        font-size:1.2rem;
-    }
+.media_search > img {
+    vertical-align: middle;
+    height:22px;
+}
 
-    .media_search_hide img{
-        /*display: inline-block;*/
-        margin-top:-8px;
-        vertical-align:middle;
-        margin-left:40px;
-
-    }
-    .media_search_hide span{
-        /*margin-top:14px;*/
-        font-size: 1.2rem;
-        color:#999999;
-
-    }
-
-     @media (max-width: 480px){
-
-        /* 隐藏的搜索块480以下的媒体查询  配合html的字号的大小改变*/
-
-        .page_hide{
-            padding-left:38px;
-        }
-
-        .page_hide .back{
-            width:38px;
-            height: 30px;   
-        }
-
-        .page_hide .back img{
-            height: 21px;
-        }
-
-        .media_search_hide>input{
-            text-indent:20px;
-        }
-
-        .media_search_hide img{
-            margin-left:20px;
-            width:15px;
-            height: 16px;
-            margin-top:-2px;
-        }
-
-        .media_search_hide span,.media_search>span{
-            font-size: 12px;
-        }
-
-
-        .media_search_hide{
-            height: 30px;
-            line-height: 30px;
-        }
-
-     }
+.media_search > span {
+    display: inline-block;
+    /*margin-top:14px;*/
+    font-size: 1.2rem;
+    color: #999;
+    vertical-align: middle;
+}

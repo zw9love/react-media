@@ -1,18 +1,16 @@
 import React ,{Component} from 'react'
-import '../assets/css/style_editShadow.css'
 import { connect } from 'react-redux'
 
-function editShadowReducer(state = null,action){
-    const {type,value} = action;
-    switch (type){
-        case 'EditShadow':return value; break;
-        case 'getEditShadow':return state; break;
-        default:return state;
-    }
-    // return state
-}
-
-module.exports.editShadowReducer=editShadowReducer;
+// function editShadowReducer(state = null,action){
+//     const {type,value} = action;
+//     switch (type){
+//         case 'EditShadow':return value;
+//         case 'getEditShadow':return state;
+//         default:return state;
+//     }
+// }
+//
+// module.exports.editShadowReducer=editShadowReducer;
 
 const EditShadow = React.createClass({
     cancel(){
@@ -77,7 +75,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     // console.log(ownProps)
     return {
-        setMyState: (obj) => dispatch({ type: 'EditShadow' ,value:obj}),
+        setMyState: (obj) => dispatch({ type: 'setEditShadow' ,value:obj}),
         //getMyState: () => dispatch({type: 'getEditShadow'})
     }
 }

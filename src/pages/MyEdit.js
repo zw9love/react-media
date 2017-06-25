@@ -1,7 +1,6 @@
 import React from 'react'
 import MyTitle from '../components/MyTitle'
 import '../assets/css/style_common.css'
-import '../assets/css/style_noComment.css'
 import {EditShadow} from '../components/EditShadow'
 // import { hashHistory } from 'react-router'
 import Cookie from '../assets/js/Cookie'
