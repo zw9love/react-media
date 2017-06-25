@@ -1,0 +1,84 @@
+/*页面的内容大块的样式*/
+
+.media_info_big > p {
+    margin: 1.5rem 0;
+}
+
+.media_info_big > p a {
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+.media_info_big > a {
+    display: block;
+    width: 100%;
+    padding-top: 67.94%;
+    position: relative;
+}
+
+.media_info_big > a > img {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index:-1
+}
+
+.media_info_big > a .media_info_movie {
+    width: 16%;
+    padding-top: 16%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid #fff;
+    border-radius: 50%;
+    display: none;
+    z-index: 0;
+}
+
+.media_info_big > a .media_info_movie > span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    border-left: 2.2rem solid #fff;
+    border-right: 0px solid transparent;
+    border-top: 1.3rem solid transparent;
+    border-bottom: 1.3rem solid transparent;
+    border-radius: 2px;
+
+}
+
+.media_info_big .media_info_icon {
+
+    /*overflow: hidden;*/
+    float: none;
+    font-size: 1rem;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: auto;
+    margin-top: 1rem;
+
+}
+
+.media_info_big .media_info_icon:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.media_info_big .media_info_icon > p {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    color: #aaa;
+}

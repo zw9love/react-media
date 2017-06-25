@@ -20,7 +20,7 @@ import { createStore,combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 // import Recommend from  './components/Recommend'
-import './assets/css/style_index.css';
+import './assets/css/style_global.css';
 import $ from 'jquery'
 import {editShadowReducer} from './components/EditShadow'
 //hashHistory  browserHistory  createMemoryHistory
@@ -61,23 +61,23 @@ ReactDOM.render(
 );
 
 
-const size=parseInt($('html').css('font-size'));
-
-function pageInit(){
-    let width=$(window).width();
-    if(width<750){
-        let bili=width/750;
-        $('html').css({
-            'font-size':bili*size
-        });
-    }else{
-        $('html').css({
-            'font-size':size
-        });
-    }
-}
-
-pageInit();
-
-$(window).resize(pageInit);
+// const size=parseInt($('html').css('font-size'));
+//
+// function pageInit(){
+//     let width=$(window).width();
+//     if(width<750){
+//         let bili=width/750;
+//         $('html').css({
+//             'font-size':bili*size
+//         });
+//     }else{
+//         $('html').css({
+//             'font-size':size
+//         });
+//     }
+// }
+//
+// pageInit();
+//
+// $(window).resize(pageInit);
 

@@ -1,117 +1,158 @@
-*{
-    font-family: PingFang-Medium, PingFangSC-Regular, "Microsoft YaHei";
-    text-decoration: none;
-    color:#333;
-    word-wrap:break-word;
-    word-break:break-all;
-}
 
-html{
-    font-size: 20px;
-    height: 100%;
-    overflow-x: hidden;
-    -webkit-text-size-adjust:none;
-    -ms-touch-action: none;
-    -webkit-touch-action: none;
-    touch-action: none;
-}
-
-body{
-    position: relative;
-    max-width: 768px;
-    min-width: 320px;
-    margin: 0 auto;
-    /*box-sizing:border-box;*/
-    overflow-x: hidden;
-    /*perspective:600px;*/
-    /*-webkit-perspective:600px;*/
-    -webkit-tap-highlight-color: transparent;
-    /*height: 100%;*/
-}
-
-/*最大的内容容器块*/
-
-.home_container{
-    position: relative;
-    left:0;
-    top:0;
-    transition:all 0.8s ease 0s;
-    -webkit-transition:all 0.8s ease 0s;
-    /*overflow: hidden;*/
-    z-index: 2;
-}
-
-div.go_contain{
-    left:70%;
-    transform:rotateY(-15deg);
-    -webkit-transform:rotateY(-15deg);
-}
-
-.contain_shadow{
+.contain_shadow {
     position: absolute;
-    left:0;
-    top:0;
+    left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    background: rgb(0,0,0);
+    background: rgb(0, 0, 0);
     z-index: -1;
-    transition:all 0.8s ease 0s;
-    -webkit-transition:all 0.8s ease 0s;
+    transition: all 0.8s ease 0s;
+    -webkit-transition: all 0.8s ease 0s;
     opacity: 0;
 }
 
-div.go_shadow{
-    z-index: 1000;
-    opacity: 0.3;
+/*主页头部公共样式*/
+
+
+.header_contain {
+    border-bottom: 1px solid #e8e8e8;
+    position:fixed;
+    left:50%;
+    top:0;
+    transform:translateX(-50%);
+    -webkit-transform:translateX(-50%);
+    width:100%;
+    max-width:600px;
+    background: #fff;
+    z-index: 1;
+    padding: 0 1.2rem;
+    box-sizing: border-box;
+}
+
+header.media_header {
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-left: 1.75rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    position: relative;
+}
+
+header.media_header > a {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    padding-right: 25px;
+}
+
+header.media_header > a > img {
+    vertical-align: middle;
+    width:22px;
+}
+
+header.media_header .media_header_info {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    margin-left: 25px;
+
+}
+
+header.media_header .media_header_info ul {
+    position: relative;
+    overflow: hidden;
+    width: 5000px;
+}
+
+header.media_header .media_header_info ul li {
+    float: left;
+    margin-right: 1.65rem;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+header.media_header .media_header_info ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.5rem;
+    line-height: 2rem;
 }
 
 /*页面的内容块的样式*/
 
-.media_info{
-    margin-top:1.5rem;
-    box-sizing:border-box;
-    padding:0 1.2rem;
-
+.media_info {
+    margin-top: 1.5rem;
+    box-sizing: border-box;
 }
 
-.show{
-    display: block!important;
-}
 
-.hide{
-    display: none!important;
-}
+/*侧边栏*/
 
-.noscroll{
+/*侧边栏登录头像*/
+
+.login_head {
     overflow: hidden;
+    margin-top: 2.5rem;
 }
 
-.scroller1{
-    /*transition-timing-function:cubic-bezier(0.1, 0.57, 0.1, 1);*/
-    transition-timing-function:cubic-bezier(0.25,0.46, 0.45, 0.94);
-    -webkit-transition-timing-function:cubic-bezier(0.25,0.46, 0.45, 0.94);
-    transition-duration:600ms;
-    -webkit-transition-duration:600ms;
-    transition-property:all;
-    -webkit-transition-property:all;
+.login_head img {
+    width: 4.5rem;
+    height: 4.5rem;
+    box-sizing: border-box;
+    border: 2px solid #333;
+    float: left;
+    border-radius: 50%;
 }
 
-.scroller2{
-    transition-timing-function:cubic-bezier(0.25,0.46, 0.45, 0.94);
-    -webkit-transition-timing-function:cubic-bezier(0.25,0.46, 0.45, 0.94);
-    transition-duration:600ms;
-    -webkit-transition-duration:600ms;
-    transition-property:all;
-    -webkit-transition-property:all;
+.login_head span {
+    float: left;
+    line-height: 4.5rem;
+    font-size: 1.5rem;
+    margin-left: 23px;
 }
 
+.aside {
+    width: 70%;
+    background: #fff;
+    position: fixed;
+    left: -70%;
+    top: 0;
+    padding-left: 1.2rem;
+    box-sizing: border-box;
+    transition: all 0.8s ease 0s;
+    -webkit-transition: all 0.8s ease 0s;
+    opacity: 0;
+    z-index:0;
+}
 
-@media (max-width: 480px){
+/*.aside > a {*/
+/*display: inline-block;*/
+/*}*/
 
-    /* 页面字号大小480以下的媒体查询  配合html的字号的大小改变*/
+/*侧边栏ul块*/
 
-    .media_info{
-        margin-top:1rem;
-    }
+.aside ul {
+    margin-top: 3rem;
+}
 
+.aside ul li {
+    overflow: hidden;
+    clear: both;
+}
+
+.aside ul li img {
+    float: left;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.aside ul li span {
+    float: left;
+    font-size: 1.4rem;
+    line-height: 2.5rem;
+    margin-left: 16px;
 }

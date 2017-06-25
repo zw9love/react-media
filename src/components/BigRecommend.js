@@ -1,6 +1,5 @@
 import React from 'react';
-import '../assets/css/style_bigrecommend.css'
-import MyLine from './MyLine'
+import '../assets/css/style_bigRecommend.css'
 import { hashHistory } from 'react-router';
 
 export default React.createClass({
@@ -8,20 +7,20 @@ export default React.createClass({
         hashHistory.push({
             pathname: '/show',
             state:{
-                isMovie:this.props.data.ismovie
+                isMovie:this.props.data.isMovie
             }
         })
     },
     getInitialState(){
         return{
-            isMovie:this.props.data.ismovie
+            isMovie:this.props.data.isMovie
         }
     },
     render:function(){
         return (
             <div>
                 <div className={this.state.isMovie ? "media_info_big have_movie" : "media_info_big"} >
-                        <p><a href="javascript:;" onClick={this.jump}>欧洲杯期间，穿的美美的看球才是正经事</a></p>
+                        <p><a href="javascript:;" onClick={this.jump}>{this.props.data.title}</a></p>
                 <a href="javascript:;" className="movie" ><img src={require("../assets/img/b1.jpg")} alt="" onClick={this.jump}/>
                     <div className="media_info_movie">
                         <span></span>
@@ -30,16 +29,16 @@ export default React.createClass({
                 <div className="media_info_icon">
                     <div className="media_info_eyes">
                         <img src={require("../assets/img/eyes.png")} alt="" />
-                            <span>{this.props.data.eyes}</span>
+                            <span>{this.props.data.eye_num}</span>
                     </div>
                     <div className="media_info_msg">
                         <img src={require("../assets/img/msg.png")} alt="" />
-                            <span>{this.props.data.msg}</span>
+                            <span>{this.props.data.msg_num}</span>
                     </div>
-                    <p>时尚芭莎</p>
+                    <p>#{this.props.data.author}</p>
                 </div>
                 </div>
-                <MyLine />
+                <div className="line"></div>
             </div>
         )
     }
