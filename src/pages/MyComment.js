@@ -97,7 +97,7 @@ export default class MyComment extends Component {
     render() {
         return (
             <div>
-                <MyTitle title="我的评论"/>
+                <MyTitle title="我的评论" editActive={true}/>
                 <div className="container">
                     <MyShadow title={this.state.shadowTitle} editActive={true}/>
                     {

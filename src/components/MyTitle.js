@@ -8,7 +8,7 @@ export default React.createClass({
             name: '编辑'
         }
     },
-    contextTypes:{
+    contextTypes: {
         store: React.PropTypes.object.isRequired
     },
     componentDidMount(){
@@ -19,7 +19,7 @@ export default React.createClass({
     },
     edit(){
         let edit = this.context.store.getState().editTargetReducer
-        edit.setState({editActive:!edit.state.editActive})
+        edit.setState({editActive: !edit.state.editActive})
         this.flag = !this.flag
         this.flag ? this.setState({name: '取消'}) : this.setState({name: '编辑'})
     },
@@ -30,7 +30,13 @@ export default React.createClass({
                     <img src={require("../assets/img/back.png")} alt=""/>
                 </div>
                 <span className="page-title">{this.props.title}</span>
-                <span className="page-edit" onClick={this.edit}><a href="javascript:;">{this.state.name}</a></span>
+                {
+                    this.props.editActive ? (
+                        <span className="page-edit" onClick={this.edit}>
+                            <a href="javascript:;">{this.state.name}</a>
+                        </span>
+                    ) : null
+                }
             </div>
         )
     }

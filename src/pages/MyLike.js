@@ -101,7 +101,7 @@ export default class MyLike extends Component {
     render() {
         return (
             <div>
-                <MyTitle title="我的收藏"/>
+                <MyTitle title="我的收藏" editActive={true}/>
                 <div className="container">
                     <MyShadow title={this.state.shadowTitle} editActive={true}/>
                     {

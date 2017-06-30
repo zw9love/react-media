@@ -1,52 +1,100 @@
 import React from 'react'
 import '../assets/css/style_myOrder.css'
 import MyTitle from '../components/MyTitle'
-// import OrderListLi from '../components/OrderListLi'
 import { hashHistory } from 'react-router'
-// import Cookie from '../assets/js/Cookie'
+import {myScroll, unScroll} from '../tool/Scroll'
+import Mock from 'mockjs'
 
 export default React.createClass({
-    componentDidMount(){
-        // Cookie.myCookie.setCookie('backHome',true)
-    },
     getInitialState(){
         return{
-            list:[
-                {time:'22:08',num:20,name:'全民星探1',info:'著名奶爸耍大牌经纪人一年四换1著名奶爸耍大牌经纪人一年四换1著名奶爸耍大牌经纪人一年四换1著名奶爸耍大牌经纪人一年四换1著名奶爸耍大牌经纪人一年四换1著名奶爸耍大牌经纪人一年四换1著名奶爸耍大牌经纪人一年四换1',src:require('../assets/img/orderlogo.png')},
-                {time:'22:09',num:21,name:'全民星探2',info:'著名奶爸耍大牌经纪人一年四换2著名奶爸耍大牌经纪人一年四换2著名奶爸耍大牌经纪人一年四换2著名奶爸耍大牌经纪人一年四换2著名奶爸耍大牌经纪人一年四换2著名奶爸耍大牌经纪人一年四换2著名奶爸耍大牌经纪人一年四换2',src:require('../assets/img/orderlogo.png')},
-                {time:'22:10',num:22,name:'全民星探3',info:'著名奶爸耍大牌经纪人一年四换3著名奶爸耍大牌经纪人一年四换3著名奶爸耍大牌经纪人一年四换3著名奶爸耍大牌经纪人一年四换3著名奶爸耍大牌经纪人一年四换3著名奶爸耍大牌经纪人一年四换3著名奶爸耍大牌经纪人一年四换3',src:require('../assets/img/orderlogo.png')},
-                {time:'22:11',num:23,name:'全民星探4',info:'著名奶爸耍大牌经纪人一年四换4著名奶爸耍大牌经纪人一年四换4著名奶爸耍大牌经纪人一年四换4著名奶爸耍大牌经纪人一年四换4著名奶爸耍大牌经纪人一年四换4著名奶爸耍大牌经纪人一年四换4著名奶爸耍大牌经纪人一年四换4',src:require('../assets/img/orderlogo.png')},
-            ]
+            orderData:[]
         }
     },
-    jump(){
+    componentDidMount(){
+        this.renderOrderData()
+        myScroll(this, {'data_name': 'orderData', 'fn_name': 'renderOrderData', 'num': 100})
+    },
+    // 组件销毁的时候
+    componentWillUnmount() {
+        unScroll()
+    },
+    goOrderShow(data){
         hashHistory.push({
             pathname:'/subscribe'
         })
+    },
+    renderOrderData(){
+        let data = Mock.mock({
+            'list|10': [{
+                'id': '@id',
+                'title': '@ctitle(6,150)',
+                'author': '@cword(2,8)',
+                'isOrder': '@boolean',
+                'src': require('../assets/img/order.png'),
+                'time': '@time("HH:mm")',
+                'num|0-99': 0,
+            }],
+        }).list
+
+        this.setState({orderData:this.state.orderData.concat(data)})
+
+    },
+
+    renderOrderCell(){
+        let arr = []
+        let data = this.state.orderData
+        data.map((data,i)=>{
+            arr.push(
+                <div key={i}>
+                    <div className="main_order">
+                        <a href="javascript:;" onClick={()=>{this.goOrderShow(data)}}>
+                            <img src={data.src} alt="" />
+                            <span className="num">{data.num}</span>
+                        </a>
+
+                        <div className="main_order_info">
+                            <p onClick={()=>{this.goOrderShow(data)}}>
+                                <a href="javascript:;">{data.author}</a>
+                            </p>
+                            <p onClick={()=>{this.goOrderShow(data)}}>{data.title}</p>
+                        </div>
+                        <span id="time">{data.time}</span>
+                    </div>
+                    <div className="line"></div>
+            </div>
+            )
+        })
+
+        return arr
     },
     render(){
         return(
             <div>
                 <MyTitle title="我的订阅" />
-                <div className="add_container" onClick={this.jump}>
-                    <a href="javascript:;">
-                        <div className="media_search_orderlist">
-                            <div className="bottom"></div>
-                            <div className="big_add">
-                                <div className="add">
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                                <span>&nbsp;添加更多订阅号</span>
+                {
+                    this.state.orderData.length == 0 ? (
+                            <div className="no_comment">
+                                <p>暂无订阅内容</p>
                             </div>
-                        </div>
-                    </a>
-                </div>
-
-                <p className="noorder">暂无订阅内容</p>
-        
+                        ) : null
+                }
                 <div className="container">
-
+                    <div className="add_container" onClick={this.jump}>
+                        <a href="javascript:;">
+                            <div className="order_search" style={{marginTop:0}}>
+                                <div className="bottom"></div>
+                                <div className="big_add">
+                                    <div className="add">
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                    <span>&nbsp;添加更多订阅号</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    {this.renderOrderCell()}
                 </div>
              </div>
         )
