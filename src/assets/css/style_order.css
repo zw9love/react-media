@@ -1,172 +1,48 @@
+/*订阅块的样式*/
 
-    /*订阅块的样式*/
+.main_order {
+    width: 100%;
+    /*overflow: hidden;*/
+    position: relative;
+    margin-top: 2.5rem;
+}
 
-    .main_order{
-        width:100%;
-        /*overflow: hidden;*/
-        position: relative;
-        margin-top:2.5rem;
-    }
+.main_order:after {
+    content: "";
+    display: block;
+    clear: both;
+}
 
-    .main_order:after{
-        content: "";
-        display: block;
-        clear: both;
-    }
+.main_order > a > img {
+    float: left;
+    width: 50px;
+    height: 50px;
+    max-width: 80px;
+    border-radius: 50%;
+    cursor: pointer;
+    min-width: 40px;
+    min-height: 40px;
+}
 
-    .main_order>a>img{
-        float: left;
-        width:4rem;
-        height: 4rem;
-        max-width: 80px;
-        border-radius:50%;
-        cursor: pointer;
-        min-width: 40px;
-        min-height: 40px;
-    }
+.main_order_info {
+    float: left;
+    position: absolute;
+    left: 5.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    height:100%;
+    width:calc(100% - 5.5rem);
+}
 
-    .main_order_info{
-        float: left;
-        position: absolute;
-        left:5.5rem;
-        top:50%;
-        transform:translateY(-50%);
-        -webkit-transform:translateY(-50%);
-        width:61.38%;
-    }
+.main_order_info > p:first-child a {
+    font-size: 1.2rem;
+    color: #2e99e9;
+}
 
-    .main_order_info>p:first-child a{
-        font-size: 1.2rem;
-        color:#2e99e9;
-    }
-
-    .main_order_info>p:last-child{
-        font-size: 1rem;
-        margin-top:10px;
-        color:#999999;
-        width:100%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space:nowrap;
-    }
-    .main_order_select{
-        width:100px;
-        height: 44px;
-        border-radius: 23px;
-        border:1px solid #e92230;
-        text-align: center;
-        color:#e92230;
-        padding:0px 10px;
-        /*box-sizing:border-box;*/
-        position: absolute;
-        right:0;
-        top:50%;
-        transform:translateY(-50%);
-        -webkit-transform:translateY(-50%);
-        /*background: skyblue*/
-    }
-
-    .addhover{
-        border:1px solid rgb(153, 153, 153)
-    }
-
-    .main_order_select>.icon_add{
-        position: absolute;
-        width:16px;
-        height: 16px;
-        left:22px;
-        top:50%;
-        transform:translateY(-50%);
-        -webkit-transform:translateY(-50%);
-    }
-    
-    .main_order_select>.icon_add>span:first-child{
-        width:1px;
-        height: 100%;
-        background: #e92230;
-        position: absolute;
-        left:50%;
-        top:50%;
-        transform:translate(-50%,-50%);
-        -webkit-transform:translate(-50%,-50%);
-    }
-
-    .main_order_select>.icon_add>span:last-child{
-        width:100%;
-        height: 1px;
-        background:#e92230;
-        position: absolute;
-        left:50%;
-        top:50%;
-        transform:translate(-50%,-50%);
-        -webkit-transform:translate(-50%,-50%);
-    }
-
-    .main_order_select>span{
-        font-size: 24px;
-        color:#e92230;
-        position: absolute;
-        right:22px;
-        top:50%;
-        transform:translateY(-50%);
-        -webkit-transform:translateY(-50%);
-    }
-
-    .has_order{
-        right:auto!important;
-        left:50%!important;
-        top:50%!important;
-        transform:translate(-50%,-50%)!important;
-        -webkit-transform:translate(-50%,-50%)!important;
-        color:#999!important;
-        width:100%;
-    }
-
-    .main_sp{
-        margin-top:1.5rem;
-    }
-
-    @media (max-width: 480px){
-
-        /* 订阅块的480以下的媒体查询  配合html的字号的大小改变*/
-
-        .main_order_select>span{
-            font-size: 12px;
-        }
-
-        .main_order_info>p:first-child a{
-            font-size: 14px;
-        }
-
-        .main_order_info>p:last-child{
-            font-size: 12px;
-        }
-
-        .main_order_info>p:last-child{
-            margin-top: 2px;
-        }
-
-        .main_order_select{
-            width:72px;
-            height: 30px;
-            padding:0px 0px;
-        }
-
-        .main_order_select>.icon_add{
-            left:15px;
-            width:10px;
-            height: 10px;
-        }
-
-
-        .main_order_select>span{
-            right: 15px;
-        }
-
-
-        .main_order>a>img{
-            width:40px;
-            height: 40px;
-        }
-
-    }
+.main_order_info > p:last-child {
+    font-size: 1rem;
+    color: #999999;
+    position: absolute;
+    bottom:0
+}

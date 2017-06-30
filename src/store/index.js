@@ -11,29 +11,26 @@ function myShadowReducer(state = null,action){
         case 'setMyShadow':
             state = value
             return state
-        case 'getMyShadow':
+        default:
+            return state
+    }
+}
+
+function editTargetReducer(state = null,action){
+    const {type,value} = action;
+    switch (type){
+        case 'setEditTarget':
+            state = value
             return state
         default:
             return state
     }
 }
 
-function editShadowReducer(state = null,action){
-    const {type,value} = action;
-    switch (type){
-        case 'setEditShadow':
-            state = value
-            return state
-        case 'getEditShadow':
-            return state
-        default:
-            return state
-    }
-}
 
 const reducers = combineReducers({
     myShadowReducer,
-    editShadowReducer,
+    editTargetReducer,
     routing: routerReducer
 })
 

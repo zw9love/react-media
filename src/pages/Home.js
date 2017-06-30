@@ -53,6 +53,8 @@ class App extends Component {
     // 组件销毁的时候
     componentWillUnmount() {
         unScroll()
+        $('body').removeClass('body')
+        $('html').removeClass('html')
         // $('html,body').css({
         //     'perspective': 'none',
         //     '-webkit-perspective': 'none'

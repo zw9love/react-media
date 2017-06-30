@@ -32,6 +32,11 @@ export default class MyShadow extends Component {
 
     sure(){
         this.cancel()
+        let edit = this.context.store.getState().editTargetReducer
+        if(this.props.editActive){
+            edit.state.recommendData.splice(edit.editIndex,1)
+            edit.setState({recommendData:edit.state.recommendData})
+        }
     }
 
     renderView() {

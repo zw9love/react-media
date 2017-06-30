@@ -1,14 +1,13 @@
 import React from 'react'
-import '../assets/css/style_common.css'
-import '../assets/css/style_orderlist.css'
+import '../assets/css/style_myOrder.css'
 import MyTitle from '../components/MyTitle'
-import OrderListLi from '../components/OrderListLi'
+// import OrderListLi from '../components/OrderListLi'
 import { hashHistory } from 'react-router'
-import Cookie from '../assets/js/Cookie'
+// import Cookie from '../assets/js/Cookie'
 
 export default React.createClass({
     componentDidMount(){
-        Cookie.myCookie.setCookie('backHome',true)
+        // Cookie.myCookie.setCookie('backHome',true)
     },
     getInitialState(){
         return{
@@ -28,7 +27,7 @@ export default React.createClass({
     render(){
         return(
             <div>
-                <MyTitle title="我的订阅" name="" />
+                <MyTitle title="我的订阅" />
                 <div className="add_container" onClick={this.jump}>
                     <a href="javascript:;">
                         <div className="media_search_orderlist">
@@ -47,13 +46,7 @@ export default React.createClass({
                 <p className="noorder">暂无订阅内容</p>
         
                 <div className="container">
-                    {
-                        this.state.list.map(function(msg,i){
-                            return (
-                                <OrderListLi key={i} data={msg}/>
-                            )
-                        })
-                    }
+
                 </div>
              </div>
         )
