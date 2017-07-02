@@ -1,0 +1,68 @@
+/*内容块的样式*/
+
+.page_explain {
+    text-align: left;
+    margin-top: 1.7rem;
+}
+
+.page_title {
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+
+.page_info {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: #999;
+    line-height: 1.9rem;
+}
+
+/*page_header*/
+
+.page_header {
+    height:60px;
+    position: fixed;
+    left:50%;
+    top:0;
+    transform:translateX(-50%);
+    -webkkit-transform:translateX(-50%);
+    width:100%;
+    max-width:600px;
+    padding:0 1.2rem;
+    box-sizing: border-box;
+    text-align: center;
+    z-index: 10;
+    background-color: #fff;
+}
+
+.page_header > img {
+    display: inline-block;
+    width:50px;
+    vertical-align: middle;
+    margin-top: 5px;
+}
+
+.page_header .back{
+    position: absolute;
+    left:1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.page_header .back img {
+    width: 25px;
+    padding-right: 10px;
+}
+
+.order-cell{
+    position: absolute;
+    right:1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    cursor: pointer;
+}
+

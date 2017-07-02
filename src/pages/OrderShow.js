@@ -1,61 +1,85 @@
 import React from 'react'
-import '../assets/css/style_common.css'
-import '../assets/css/style_ordershow.css'
-import '../assets/css/style_modal.css'
-import OrderButton from '../components/OrderCell'
-import MyLine from '../components/MyLine'
+import '../assets/css/style_orderShow.css'
+import OrderCell from '../components/OrderCell'
 import Recommend from '../components/Recommend'
+import Mask from '../components/Mask'
 import { hashHistory } from 'react-router'
+import Mock from 'mockjs'
+import {myScroll, unScroll} from '../tool/Scroll'
 
 export  default  React.createClass({
-    back(){
+    goBack(){
         hashHistory.go(-1)
+    },
+    getInitialState(){
+        return{
+            recommendData: [],
+            orderData:this.props.location.state.data
+        }
+    },
+    componentDidMount(){
+        this.renderRecommendData()
+        myScroll(this, {'data_name': 'recommendData', 'fn_name': 'renderRecommendData', 'num': 100})
+    },
+    // 组件销毁的时候
+    componentWillUnmount() {
+        unScroll()
+    },
+    renderRecommendCell(){
+        let arr = []
+        let data = this.state.recommendData
+        data.map((data,i)=>{
+            arr.push(
+                <Recommend data={data} key={i}/>
+            )
+        })
+
+        return arr
+    },
+    renderRecommendData(){
+        let data = Mock.mock({
+            'list|5': [{
+                'id':'@id',
+                'title': '@ctitle(6,50)',
+                'author': '@cword(2,8)',
+                'msg_num|0-999': 0,
+                'eye_num|0-999': 0,
+                'isMovie': '@boolean',
+                'isOrder': '@boolean',
+                'time':'@datetime("yyyy-MM-dd")',
+                'src':'../assets/img/order.png',
+                'infoData|1-5':[{
+                    'info':'@cparagraph()',
+                    'src':require('../assets/img/show_3.jpg')
+                }]
+            }],
+        }).list
+
+        this.setState({recommendData:this.state.recommendData.concat(data)})
     },
     render(){
         return(
             <div>
-                <div className="page_header" id="ordershow">
-                    <div className="back" onClick={this.back}>
+                <div className="page_header" style={{margin:0,border:'none'}}>
+                    <div className="back" onClick={()=>{this.goBack()}}>
                         <img src={require("../assets/img/back.png")} alt="" />
                     </div>
-                    <img src={this.state.data.src} alt="" />
-                    <OrderButton modalShow={this.modalShow} changeModalStyle={this.changeModalStyle}/>
-                </div>
-                <div className="container">
-                    <div className="page_explain">
-                        <p className="page_title">{this.state.data.name}</p>
-                        <p className="page_info">{this.state.data.info}</p>
+                    <img src={require("../assets/img/page.png")} alt="" />
+                    <div className="order-cell">
+                        <OrderCell orderActive={this.state.orderData.isOrder}/>
                     </div>
-                    <MyLine />
-                    {
-                        this.state.list.map(function(msg,i){
-                            return (
-                                <Recommend key={i} data={msg}/>
-                            )
-                        })
-                    }
                 </div>
-                 <div className={this.state.ismodal ? "modal active" : "modal"} style={this.state.modalStyle} ><div>{this.state.modalMsg}</div></div>
+                <Mask />
+                <div className="container">
+
+                    <div className="page_explain" style={{margin:0}}>
+                        <p className="page_title">{this.state.orderData.author}</p>
+                        <p className="page_info">{this.state.orderData.title}</p>
+                    </div>
+                    <div className="line"></div>
+                    {this.renderRecommendCell()}
+                </div>
             </div>
         )
-    },
-    getInitialState(){
-        return{
-            list:[
-                {eyes:100, msg:666, ismovie:false,infoObj:{ismovie:false}},
-                {eyes:200, msg:888, ismovie:true,infoObj:{ismovie:true}},
-            ],
-            data:this.props.location.state,
-            modalMsg:'',
-        }
-    },
-    modalShow(msg){
-        this.setState({ismodal:!this.state.ismodal});
-        if(msg){
-            this.setState({modalMsg:msg});
-        }
-    },
-    changeModalStyle(val){
-        this.setState({modalStyle:val});
-    },
+    }
 })

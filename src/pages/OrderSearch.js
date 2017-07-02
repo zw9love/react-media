@@ -4,6 +4,7 @@ import '../assets/css/style_order.css'
 import OrderCell from '../components/OrderCell'
 import TitleSearch from '../components/TitleSearch'
 import Mask from '../components/Mask'
+import { hashHistory } from 'react-router'
 import {myScroll, unScroll} from '../tool/Scroll'
 import Mock from 'mockjs'
 
@@ -60,8 +61,13 @@ export default React.createClass({
     changeModalStyle(val){
         this.setState({modalStyle: val});
     },
-    goOrderShow(){
-
+    goOrderShow(data){
+        hashHistory.push({
+            pathname:'/orderShow',
+            state:{
+                data:data
+            }
+        })
     },
     renderOrderData(){
         let data = Mock.mock({

@@ -21,7 +21,10 @@ export default React.createClass({
     },
     goOrderShow(data){
         hashHistory.push({
-            pathname:'/orderShow'
+            pathname:'/orderShow',
+            state:{
+                data:data
+            }
         })
     },
     jump(){
