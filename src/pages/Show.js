@@ -1,164 +1,324 @@
 import React, {Component} from 'react';
 import '../assets/css/style_show.css'
-import '../assets/css/style_modal.css'
 import Order from '../components/Order'
-import ShowText from '../components/ShowText'
-import Share from '../components/Share'
-import MyLine from '../components/MyLine'
+
 import Recommend from '../components/Recommend'
 import Comment from '../components/Comment'
-import ShadowBottom from '../components/ShadowBottom'
-import ShowTextArea from '../components/ShowTextArea'
-import ShowMovie from '../components/ShowMovie'
 import $ from 'jquery'
+import Mock from 'mockjs'
+import {myScroll,unScroll} from '../tool/Scroll'
+import {hashHistory} from 'react-router'
 
 export default React.createClass({
     componentDidMount(){
+        console.log(this.state.data)
         $(window).scrollTop(0)
+        this.renderRecommendData()
+        this.renderCommentData()
+        myScroll(this, {'data_name': 'commentData', 'fn_name': 'renderCommentData', 'num': 30})
+    },
+    // 组件销毁的时候
+    componentWillUnmount() {
+        unScroll()
     },
     getInitialState(){
         return {
-            textList: {
-                title: '我是文章详情页的title啊',
-                orderObj: {
-                    name: '时尚芭莎111',
-                    lineShow: false,
-                    time: '2016-07-04',
-                    src: require('../assets/img/order.png')
-                },
-                arr: [
-                    {
-                        src: require("../assets/img/show_1.jpg"),
-                        info: '每到夏季就会让我们不由自主的去选择白色的服装，因为白色不仅好看，也是最不吸热的颜色。我们也为了找寻这样的答案而寻找出了十位时尚111111'
-                    },
-                    {
-                        src: require("../assets/img/show_1.jpg"),
-                        info: '每到夏季就会让我们不由自主的去选择白色的服装，因为白色不仅好看，也是最不吸热的颜色。我们也为了找寻这样的答案而寻找出了十位时尚222222'
-                    },
-                    {
-                        src: require("../assets/img/show_1.jpg"),
-                        info: '每到夏季就会让我们不由自主的去选择白色的服装，因为白色不仅好看，也是最不吸热的颜色。我们也为了找寻这样的答案而寻找出了十位时尚333333'
-                    }
-                ]
-            },
-            hotRecommend: [
-                {eyes: 777, msg: 777, ismovie: true, infoObj: {ismovie: true}},
-                {eyes: 888, msg: 888, ismovie: false, infoObj: {ismovie: false}}
-            ],
-            commentList: [
-                {
-                    name: '曾威',
-                    arr: [{name1: '曾威', name2: '', info: '单论得分能力，蜗壳虚过谁？？？！！！', isactive: false}],
-                    src: 'http://localhost:8080/src/assets/img/order.png',
-                    time: '刚刚',
-                    like: '300',
-                    msg: '300',
-                    commentInfo: '科比布莱恩特，科比布莱恩特科比布莱恩特，科比布莱恩特科比布莱恩特科比布莱恩特'
-                },
-                {
-                    name: '沈敏杰',
-                    arr: [{name1: '沈敏杰', name2: '', info: '麦诗人啊！！！', isactive: false}],
-                    src: 'http://localhost:8080/src/assets/img/order.png',
-                    time: '30分钟前',
-                    like: '400',
-                    msg: '400',
-                    commentInfo: '特雷西麦克格雷迪，特雷西麦克格雷迪特雷西麦克格雷迪，特雷西麦克格雷迪特雷西麦克格雷迪特雷西麦克格雷迪'
-                },
-                {
-                    name: '殷镇威',
-                    arr: [{name1: '大熊有点帅', name2: '', info: '我勒个去啊，扣篮王卡特啊', isactive: false}, {
-                        name1: '静香有点靓',
-                        name2: '',
-                        info: '我勒个去啊，扣篮王卡特啊', isactive: false
-                    }, {name1: '大熊有点帅', name2: '静香有点靓', info: '我好想干你啊，射你一脸！！！', isactive: true}, {
-                        name1: '静香有点靓',
-                        name2: '大熊有点帅',
-                        info: '来啊，等你啊，谁怕谁啊', isactive: true
-                    }],
-                    src: 'http://localhost:8080/src/assets/img/order.png',
-                    time: '1小时前',
-                    like: '500',
-                    msg: '500',
-                    commentInfo: '文思卡特，文思卡特文思卡特，文思卡特文思卡特文思卡特'
-                },
-                {
-                    name: '邓登攀',
-                    arr: [{name1: '邓登攀', name2: '', info: 'AI最屌啦！！！', isactive: false}],
-                    src: 'http://localhost:8080/src/assets/img/order.png',
-                    time: '2小时前',
-                    like: '600',
-                    msg: '600',
-                    commentInfo: '阿伦艾弗森，阿伦艾弗森阿伦艾弗森，阿伦艾弗森阿伦艾弗森阿伦艾弗森'
-                },
-            ],
+            recommendData: [],
+            commentData: [],
+            data:this.props.location.state.data,
+            active: true,
+            shareActive: false,
             shadowActive: false,
-            modalMsg:'',
-            ismodal:false,
-            modalStyle:{},
-            isShow:true,
-            title:'零售商们致力于将双十一打造成奢侈品的黑色星期五66666'
+            textActive: false,
+            starActive: false,
+            commentActive: false,
+            myComment: '',
+            placeholder: '我来说两句...',
+            txtTarget:null
         }
     },
-    changeActive(){
-        this.setState({shadowActive: !this.state.shadowActive})
+    goBack(){
+        hashHistory.go(-1)
     },
-    changeShow(){
-        this.setState({shadowActive: !this.state.shadowActive})
-        var obj = this.refs.textarea;
-        obj.setState({isactive: !obj.state.isactive})
-        obj.refs.text.focus();
+    textClick(){
+        // this.txtTarget.focus()
+        this.setState({textActive:true,commentActive:false,shadowActive:true,placeholder:'我来说两句...',myComment:''})
     },
-    backShow(){
-        this.refs.showbottom.changeShow();
+    shareClick(){
+        this.setState({active:false,shareActive:true,shadowActive:true})
     },
-    modalShow(msg){
-        this.setState({ismodal:!this.state.ismodal});
-        if(msg){
-            this.setState({modalMsg:msg});
+    cancel(){
+        this.setState({active:true,shareActive:false,shadowActive:false})
+    },
+    starClick(){
+        // let maskLock = this.$store.getters.getMaskLock
+        // if (maskLock) return
+        // let action = {type: 'setMaskLock', value: true}
+        // this.$store.dispatch(action)
+        // this.starActive = !this.starActive
+        // let mask = this.$store.getters.getMask
+        // mask.msg = this.starActive ? '已添加收藏' : '已取消收藏'
+        // mask.toggleActive()
+    },
+    sureText(){
+        this.setState({shadowActive:false,textActive:false})
+    },
+    cancelText(){
+        this.setState({shadowActive:false,textActive:false})
+    },
+    renderTextArea(){
+        if(this.state.textActive){
+            return(
+                <div className="text">
+                    <div className="btn1">
+                        <span><a href="javascript:;" onClick={()=>{this.cancelText()}}>取消</a></span>
+                    </div>
+                    <div className="btn2">
+                        <span><a href="javascript:;" onClick={()=>{this.sureText()}}>发表</a></span>
+                    </div>
+                    <textarea id="txt" placeholder={this.state.placeholder}  ref="txt" />
+                </div>
+            )
+        }else{
+            return null
         }
     },
-    changeModalStyle(val){
-        this.setState({modalStyle:val});
+    renderShare(){
+        if(this.state.shareActive){
+            return (
+                <div className="comment_fixed share-fixed">
+                    <div className="comment_fixed_hide">
+                        <div className="comment_fixed_contain">
+                            <ol>
+                                <li><img src={require("../assets/img/share_weibo.png")} alt="" /><br/>
+                                    <span>新浪微博</span></li>
+                                <li><img src={require("../assets/img/share_wechat.png")} alt="" /><br/>
+                                    <span>微信好友</span></li>
+                                <li><img src={require("../assets/img/share_friend.png")} alt="" /><br/>
+                                    <span>朋友圈</span></li>
+                            </ol>
+                            <ol>
+                                <li><img src={require("../assets/img/share_qq.png")} alt="" /><br/>
+                                    <span>QQ</span></li>
+                                <li><img src={require("../assets/img/share_zone.png")} alt="" /><br/>
+                                    <span>QQ空间</span></li>
+                                <li><img src={require("../assets/img/share_copy.png")} alt="" /><br/>
+                                    <span>复制链接</span></li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div className="cancle" onClick={()=>{this.cancel()}}>
+                        <a href="javascript:;" id="cancel">取消</a>
+                    </div>
+                </div>
+            )
+        }else{
+            return null
+        }
     },
-    changePage(val){
-        this.refs.showmovie.setState({isactive:val})
-        this.refs.showtext.setState({isactive:!val})
+    renderBottom(){
+        if(this.state.active){
+            return(
+                <div className="comment_fixed" >
+                    <ul>
+                        <li>
+                            <a href="javascript:;">
+                                <img src={require("../assets/img/back.png")} alt="" className="back" onClick={()=>{this.goBack()}} />
+                            </a>
+                        </li>
+                        <li onClick={()=>{this.textClick()}}>
+                            <div className="comment_txt">
+                                <span></span>
+                                <span>发表伟大言论...</span>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="javascript:;" onClick={()=>{this.shareClick()}}>
+                                <img src={require("../assets/img/fix_share.png")} alt="" id="share" />
+                            </a>
+                        </li>
+                        {
+                            this.state.starActive ? (
+                                <li>
+                                    <a href="javascript:;" onClick={()=>{this.starClick()}}>
+                                        <img src={require("../assets/img/star_hover.png")} alt="" />
+                                    </a>
+                                </li>
+                            ):
+                            (
+                                <li>
+                                    <a href="javascript:;" onClick={()=>{this.starClick()}}>
+                                        <img src={require("../assets/img/star.png")} alt="" />
+                                    </a>
+                                </li>
+                            )
+                        }
+                        <li>
+                            <a href="javascript:;" onClick={()=>{this.textClick()}}>
+                                <img src={require("../assets/img/fix_msg.png")} alt="" style={{width: 30}} />
+                                <span className="num">666</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            )
+        }else{
+            return null
+        }
+    },
+    renderCommentData(){
+        let data = Mock.mock({
+            'list|5': [{
+                'title': '@ctitle(5,100)',
+                'author': '@cword(2,8)',
+                'msg_num|0-999': 0,
+                'like_num|0-999': 0,
+                'time': '@integer(1, 24)' + '小时之前',
+                // 评论的条数
+                'data|0-30': [{
+                    'name1': '@cname(0,4)',
+                    'name2': '@cname(0,4)',
+                    'info': '@ctitle(5,50)'
+                }]
+            }],
+        }).list
+
+        this.setState({commentData:this.state.commentData.concat(data)})
+
+    },
+    renderCommentCell(){
+        let arr = []
+        let data = this.state.commentData
+        data.map((x,i)=>{
+            arr.push(
+                <Comment data={x} key={i} commentActive={true} />
+            )
+        })
+
+        return arr
+    },
+    renderRecommendData() {
+        let data = Mock.mock({
+            'list|4': [{
+                'title': '@ctitle(6,100)',
+                'author': '@cword(2,8)',
+                'msg_num|0-999': 0,
+                'eye_num|0-999': 0,
+                'isMovie': '@boolean',
+                'id': '@id'
+            }],
+        }).list
+
+        this.setState({recommendData:data})
+    },
+    renderRecommendCell(){
+        let data = this.state.recommendData
+        let arr = []
+        data.map((x,i)=>{
+            arr.push(
+                <Recommend data={x} key={i}/>
+            )
+        })
+
+        return arr
+    },
+    renderMainCell(){
+        let data = this.state.data.infoData
+        let arr = []
+        data.map((x,i)=>{
+            arr.push(
+                <div key={i}>
+                    {
+                        x.info ? (
+                            <p>{x.info}</p>
+                        ): null
+                    }
+                    {
+                        x.src ? (
+                            <div className="main_info_img" >
+                                <img src={x.src} alt="" />
+                            </div>
+                        ) : null
+                    }
+                </div>
+            )
+        })
+
+        return arr
+    },
+    renderMain(){
+        // 电影块
+        if(this.state.data.isMovie){
+            return (
+                <div className="movie">
+                    <video src={require("../assets/video/go.mp4")} id="video" />
+                    <img src={require("../assets/img/movie.jpg")} alt="" />
+                        <a href="javascript:;">
+                            <div className="media_info_movie">
+                                <span />
+                            </div>
+                        </a>
+                        <div className="line"></div>
+                </div>
+            )
+        }else{
+            return (
+                <div>
+                    <div className="main_info">
+                        {this.renderMainCell()}
+                    </div>
+                    <p className="read_all">
+                        <a href="javascript:;">阅读原文</a>
+                    </p>
+                </div>
+            )
+        }
     },
     render(){
-        let self = this;
         return (
             <div id="show">
-                <div className={this.state.ismodal ? "modal active" : "modal"} style={this.state.modalStyle}><div>{this.state.modalMsg}</div></div>
-                <ShowMovie isactive={this.props.location.state.isMovie} ref="showmovie"/>
                 <section className="main">
-                    <p className="main_title">{this.state.title}</p>
-                    <Order modalShow={this.modalShow} changeModalStyle={this.changeModalStyle} data={this.state.textList.orderObj}/>
-                    {/*<MyLine />*/}
-                    <ShowText data={this.state.textList.arr} isactive={!this.props.location.state.isMovie} ref="showtext"/>
-                    <p className="read_all"><a href="javascript:;">阅读原文</a></p>
-                    <Share />
-                    <MyLine />
-                    <p className="same_read">相关阅读</p>
-                    {
-                        this.state.hotRecommend.map(function (msg, i) {
-                            return (
-                                <Recommend key={i} data={msg} isShow={self.state.isShow} changePage={self.changePage}/>
-                            )
-                        })
-                    }
-                    <p className="same_read">热门评论</p>
-                    {
-                        this.state.commentList.map(function (msg, i) {
-                            return (
-                                <Comment key={i} data={msg}/>
-                            )
-                        })
-                    }
+                    <p className="main_title">{this.state.data.title}</p>
+                    <div className="line"></div>
+                    <div className="main_order main_sp">
+                        <a href="javascript:;">
+                            <img src={require("../assets/img/order.png")} alt="" />
+                        </a>
+                        <div className="main_order_info">
+                            <p><a href="javascript:;">{this.state.data.author}</a></p>
+                            <p>{this.state.data.time}</p>
+                        </div>
+
+                    </div>
+                    <div className="line"></div>
+                    {this.renderMain()}
+                    <div className="main_share">
+                        <ul>
+                            <span>分享:</span>
+                            <li><a href="javascript:;"><img src={require("../assets/img/share_friend.png")} alt="" /></a></li>
+                            <li><a href="javascript:;"><img src={require("../assets/img/share_friend.png")} alt=""/></a></li>
+                            <li><a href="javascript:;"><img src={require("../assets/img/share_qq.png")} alt=""/></a></li>
+                            <li><a href="javascript:;"><img src={require("../assets/img/share_wechat.png")} alt=""/></a></li>
+                            <li><a href="javascript:;"><img src={require("../assets/img/share_weibo.png")} alt=""/></a></li>
+                            <li><a href="javascript:;"><img src={require("../assets/img/share_zone.png")} alt=""/></a></li>
+                        </ul>
+                    </div>
+                    <div className="line"></div>
+                    <p className="same_read">
+                        相关阅读
+                    </p>
+                    {this.renderRecommendCell()}
+                    <p className="same_read">
+                        热门评论
+                    </p>
+                    <div className="container" style={{margin:0}}>
+                        {this.renderCommentCell()}
+                    </div>
                 </section>
-                <MyLine />
-                <ShadowBottom changeActive={this.changeActive} changeShow={this.changeShow} modalShow={this.modalShow} changeModalStyle={this.changeModalStyle} ref="showbottom"/>
-                <div className={this.state.shadowActive ? "shadow" : "shadow hide"}></div>
-                <ShowTextArea ref="textarea" backShow={this.backShow}/>
+                {this.renderBottom()}
+                {this.renderShare()}
+                {this.renderTextArea()}
             </div>
         )
     }

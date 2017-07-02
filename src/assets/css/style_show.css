@@ -1,98 +1,506 @@
-    
-    /*详情面单独样式*/
+/*详情面单独样式*/
 
-    /*section块*/
+/*section块*/
 
-    .main{
-        margin-top:2rem;
-        box-sizing:border-box;
-        padding: 0 1.2rem;
-    }
-    .main>p.main_title{
-        font-size: 2rem;
-        box-sizing:border-box;
-        /*padding:0 10px;*/
-        font-weight: 200;
-    }
+.main {
+    margin-top: 2rem;
+    box-sizing: border-box;
+    padding: 0 1.2rem;
+}
 
-    .container{
-        padding: 0;
-    }
+.main > p.main_title {
+    font-size: 2rem;
+    box-sizing: border-box;
+    /*padding:0 10px;*/
+    font-weight: 200;
+}
 
-    .read_all{
-        margin:1.5rem 0;
+.container {
+    padding: 0;
+}
 
-    }
+/*详情页面的主要内容快*/
 
+.main_info {
+    margin-top: 2.5rem;
+}
 
-    .read_all a{
-        font-size: 1.4rem;
-        color:#2e99e9;
-        font-weight: 400;
-        text-decoration: none;
-    }
+.main_info > p {
+    font-size: 1.4rem;
+    color: #333333;
+    font-weight: 400;
+    line-height: 1.6em;
+}
 
+.main_info_img {
+    width: 100%;
+    padding-top: 67.80%;
+    margin: 1.25rem 0;
+    position: relative;
+    overflow: hidden;
+}
 
+.main_info_img img {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
 
-    .line{
-        height: 1px;
-        background: #e8e8e8;
-        margin:1.5rem 0;
-    }
+.read_all {
+    margin: 1.5rem 0;
 
-    .same_read{
-        font-size: 1.7rem;
-        font-weight: 400;
-        margin-bottom: 1.5rem;
-    }
+}
 
-    
+.read_all a {
+    font-size: 1.4rem;
+    color: #2e99e9;
+    font-weight: 400;
+    text-decoration: none;
+}
 
-    body>.line{
-        margin-bottom: 100px
-    }
+/*分享块的样式*/
 
-    .noscroll{
-        overflow: hidden;
-    }
+.main_share ul {
+    overflow: hidden;
+    position: relative;
+}
 
-    .loading{
-        margin-top:1.25rem;
-    }
+.main_share ul li {
+    font-size: 1.4rem;
+    float: left;
+    width: 9.66%;
+    box-sizing: border-box;
+    margin-right: 7%;
+    position: relative;
+    padding-top: 9.66%;
+}
 
-    .loading p{
-        text-align: center;
-        font-size: 1.2rem;
-        color:#999999;
-        font-weight: 400;
-    }
+.main_share ul li:nth-child(2) {
+    opacity: 0
 
+}
 
-    @media (max-width: 480px){
+.main_share ul li:first-child img {
+    width: 100%;
+}
 
-        .main>p.main_title{
-            font-size: 22px;
-        }
+.main_share ul li img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
 
-        .main{
-            margin-top:15px;
-        }
+}
 
+.main_share ul span {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    font-size: 1.4rem;
+}
 
-        /*配合底部块的设置的margin值*/
+.line {
+    height: 1px;
+    background: #e8e8e8;
+    margin: 1.5rem 0;
+}
 
-        body>.line{
-            margin-bottom: 40px
-        }
+.same_read {
+    font-size: 1.7rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
 
-        /* 页面字号大小480以下的媒体查询  配合html的字号的大小改变*/
+body > .line {
+    margin-bottom: 100px
+}
 
-        .same_read{
-            font-size: 18px;
-        }
+.noscroll {
+    overflow: hidden;
+}
 
-        .read_all a{
-            font-size: 16px;
-        }
+/*底部固定块的样式*/
 
-    }
+.comment_fixed {
+    width: 100%;
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    max-width: 600px;
+    transform: translateX(-50%);
+    -webkit-stransform: translateX(-50%);
+    z-index: 103;
+    /*      box-sizing:border-box;
+            padding:20px;*/
+    /*box-sizing:border-box;*/
+}
+
+.comment_fixed ul {
+    overflow: hidden;
+    height: 48px;
+    box-sizing: border-box;
+    padding: 8px 1.2rem;
+    position: relative;
+}
+
+.comment_fixed ul li {
+    float: left;
+    height: 100%;
+    width: 8.547%;
+}
+
+.comment_fixed ul li {
+    float: left;
+    height: 100%;
+    text-align: center;
+    line-height: 60px;
+    position: relative;
+}
+
+.comment_fixed ul li:nth-child(3), .comment_fixed ul li:nth-child(4), .comment_fixed ul li:nth-child(5) {
+    float: right;
+}
+
+.comment_fixed ul li:nth-child(4) {
+    padding: 0 5%;
+}
+
+.comment_fixed ul li img {
+    width: 80%;
+    vertical-align: middle;
+    min-width: 30px;
+}
+
+.comment_fixed ul li a {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.comment_fixed ul li a img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    width:30px;
+}
+
+.comment_fixed ul li img.back {
+    position: absolute;
+    width: 25px;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    padding-right: 10px;
+}
+
+.comment_fixed ul li:nth-child(2) {
+    width: 49.71%;
+}
+
+/*底部固定块的msg块样式*/
+
+.comment_fixed ul li:nth-child(5) a {
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    min-width: 30px;
+}
+
+.comment_fixed ul li:nth-child(5) img {
+    width: 100%;
+}
+
+.comment_fixed ul li:nth-child(5) a span.num {
+    font-size: 1rem;
+    height: 1rem;
+    color: #ec5059;
+    position: absolute;
+    right: 0;
+    background: #fff;
+    line-height: 0;
+    display: block;
+    line-height: 1rem;
+    top: 0px;
+}
+
+/*底部固定块的输入框块样式*/
+
+.comment_txt {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    height: 100%;
+    border-radius: 30px;
+    position: relative;
+}
+
+.comment_txt > span:first-child {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+}
+
+.comment_txt > span:last-child {
+    color: #999;
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    font-size: 1.2rem;
+}
+
+/*底部固定块的分享块样式*/
+
+.comment_fixed_hide {
+    width: 100%;
+    padding-top: 56.26%;
+    background: #fff;
+    /*bottom:56.26%;*/
+    position: relative;
+    /*display: none;*/
+}
+
+.comment_fixed_contain {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-bottom: 1px solid #ccc;
+}
+
+.comment_fixed_hide .comment_fixed_contain ol {
+
+    overflow: hidden;
+    margin-top: 4.66%;
+
+}
+
+.comment_fixed_hide .comment_fixed_contain ol:nth-child(2) {
+    width: 100%;
+    position: absolute;
+    bottom: 8%;
+    left: 0;
+}
+
+.comment_fixed_hide .comment_fixed_contain ol li {
+    width: 16%;
+    float: left;
+    text-align: center;
+    position: relative;
+}
+
+.comment_fixed_hide .comment_fixed_contain ol li:first-child {
+    padding-left: 13%;
+}
+
+.comment_fixed_hide .comment_fixed_contain ol li:nth-child(2) {
+    padding: 0 13.33%;
+}
+
+.comment_fixed_hide .comment_fixed_contain ol li img {
+    width: 83.33%;
+    vertical-align: middle;
+    cursor: pointer;
+    /*min-width: 50px;*/
+}
+
+.comment_fixed_hide .comment_fixed_contain ol li span {
+    /*width:100%;*/
+    font-size: 1.2rem;
+}
+
+.share-fixed{
+    bottom:48px;
+}
+
+/*底部取消块样式*/
+
+.cancle {
+    height:48px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 48px;
+    position: absolute;
+    bottom:-48px;
+    left:0;
+    width:100%;
+    background: #fff;
+}
+
+.cancle a {
+    font-size: 1.5rem;
+    color: #999;
+    display: inline-block;
+}
+
+/*页面遮罩层样式*/
+
+.show-shadow {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    left: 50%;
+    top: 0;
+    transform:translateX(-50%);
+    -webkit-transform:translateX(-50%);
+    z-index: 100;
+    max-width:600px;
+    /*display: none;*/
+}
+
+/*模态框*/
+.modal {
+    width: 26.04%;
+    padding-top: 10.41%;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    background: rgba(41, 43, 44, 0.6);
+    border-radius: 6px;
+    max-width: 200px;
+    z-index: 10000;
+    display: none;
+}
+
+.modal > div {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    font-size: 1.7rem;
+    color: #fff;
+    text-align: center;
+}
+
+/*固定底部评论输入框框样式*/
+
+.text {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 130px;
+    max-width: 600px;
+    background: #fff;
+    box-sizing: border-box;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    min-height: 200px;
+    z-index: 103;
+}
+
+.text #txt {
+    border: none;
+    outline: none;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 75%;
+    padding: 0 20px;
+    font-size: 1.2rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    resize: none;
+}
+
+.text .btn1 {
+    position: absolute;
+    left: 20px;
+    top: 1rem;
+    font-size: 1.4rem;
+}
+
+.text .btn2 {
+    position: absolute;
+    right: 20px;
+    top: 1rem;
+    font-size: 1.4rem;
+    padding-left: 20px;
+}
+
+.text .btn1 a {
+    color: #8c8c8c
+}
+
+.text .btn2 a {
+    color: #e92230
+}
+
+.movie {
+    position: relative;
+    padding-top: 56.25%;
+    /*margin-top:1rem;*/
+}
+
+.movie #video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: none;
+}
+
+.movie img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 100;
+}
+
+.movie .media_info_movie {
+    width: 16%;
+    padding-top: 16%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid #fff;
+    border-radius: 50%;
+    display: block;
+    z-index: 101;
+}
+
+.movie .media_info_movie > span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    border-left: 2.2rem solid #fff;
+    border-right: 0px solid transparent;
+    border-top: 1.3rem solid transparent;
+    border-bottom: 1.3rem solid transparent;
+    border-radius: 2px;
+
+}
+
+.movieshow {
+    display: block !important;
+}
