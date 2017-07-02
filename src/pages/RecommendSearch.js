@@ -1,5 +1,5 @@
 import React from 'react'
-import SearchTitle from '../components/SearchTitle'
+import SearchTitle from '../components/TitleSearch'
 import Recommend from '../components/Recommend'
 import '../assets/css/style_common.css'
 import '../assets/css/style_search.css'

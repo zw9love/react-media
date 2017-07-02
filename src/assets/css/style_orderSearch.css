@@ -1,80 +1,59 @@
-/*搜索块更改*/
+/*修改订阅块的样式*/
 
-#ordersearch .search_contain{
-    padding:0 1.2rem;
+.order_container {
+    margin-top: 1.5rem;
 }
 
-#ordersearch .media_search{
-    margin-top:1.5rem;
-    height: 3rem;
-    text-align: center;
-    position: relative;
-    line-height: 3rem;
-    cursor: pointer;
-    border-radius: 30px;
-    border:1px solid #d3d3d3;
-    box-sizing:border-box;
+.main_order {
+    margin-top: 0px;
 }
 
-#ordersearch  .media_search>div{
+.main_order_info {
+    width: 61.38%;
+    float: left;
     position: absolute;
-    left:0;
-    top:0;
-    width:100%;
-    height:100%;
-    border-radius: 30px;
-    border:1px solid #d3d3d3;
-    background: transparent;
-    box-sizing:border-box;
+    left: 5.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
 }
 
-#ordersearch  .media_search>img{
-    margin-top:-8px;
-    vertical-align:middle;
-
-}
-.media_search>span{
-    display: inline-block;
-    /*margin-top:14px;*/
-    font-size: 1.2rem;
-    color:#999;
+.main_order_info > p:first-child a {
+    color: #333;
 }
 
-#ordersearch  .media_search>span:last-child{
-    width:0.8rem;
-    height: 0.8rem;
-    border-top:1px solid #999;
-    border-right:1px solid #999;
-    transform:rotate(45deg);
-    -webkit-transform:rotate(45deg);
+.main_order_info > p:last-child {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 1rem;
+    color: #707070;
 }
 
-@media (max-width: 480px){
+/*模态框*/
+.modal {
+    width: 26.04%;
+    padding-top: 10.41%;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    background: rgba(41, 43, 44, 0.6);
+    border-radius: 10px;
+    max-width: 200px;
+    z-index: 10000;
+    display: none;
+}
 
-    /* 显示的搜索块480以下的媒体查询  配合html的字号的大小改变*/
-
-    #ordersearch  .media_search,#ordersearch  .media_search_hide{
-        height: 28px;
-        line-height: 26px;
-    }
-
-    #ordersearch  .media_search,#ordersearch  .media_search_hide{
-        margin-top:1rem;
-    }
-
-
-    #ordersearch  .media_search>img,#ordersearch  .media_search_hide>img{
-        width:15px;
-        height: 16px;
-        margin-top:-2px;
-    }
-
-    #ordersearch  .media_search>span{
-        font-size: 12px;
-    }
-
-    #ordersearch  .media_search>span:last-child{
-        width:8px;
-        height: 8px;
-    }
+.modal > div {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    font-size: 1.7rem;
+    color: #fff;
+    text-align: center;
 }

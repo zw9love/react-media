@@ -6,6 +6,7 @@ import MyShadow from '../components/MyShadow'
 import $ from 'jquery'
 import {myScroll, unScroll} from '../tool/Scroll'
 import Mock from 'mockjs'
+import { hashHistory } from 'react-router'
 
 
 class App extends Component {
@@ -20,6 +21,7 @@ class App extends Component {
         this.firstNavClick = this.firstNavClick.bind(this);
         this.renderAside = this.renderAside.bind(this);
         this.asideClick = this.asideClick.bind(this);
+        this.goLogin = this.goLogin.bind(this);
     }
 
     state = {
@@ -111,6 +113,10 @@ class App extends Component {
     test(val, e) {
         console.log(val)
         console.log(e.target)
+    }
+
+    goLogin(){
+        hashHistory.push('/loginList')
     }
 
     firstNavClick(index) {
@@ -257,8 +263,8 @@ class App extends Component {
                 {/*<!--侧边栏-->*/}
                 <div className={this.state.asideActive ? 'aside go_aside' : 'aside'} style={this.state.asideStyle}>
                     <div className="login_head">
-                        <a href="javascript:;"><img src={require("../assets/img/login.png")} alt=""/></a>
-                        <span><a href="javascript:;">点击登录</a></span>
+                        <a href="javascript:;" onClick={this.goLogin}><img src={require("../assets/img/login.png")} alt=""/></a>
+                        <span><a href="javascript:;" onClick={this.goLogin}>点击登录</a></span>
                     </div>
                     <ul>
                         {this.renderAside()}

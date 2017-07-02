@@ -1,6 +1,6 @@
 import React from 'react'
 import MyTitle from '../components/MyTitle'
-// import '../assets/css/style_common.css'
+
 import '../assets/css/style_phone_login.css'
 
 export default React.createClass({
@@ -25,8 +25,6 @@ export default React.createClass({
         }
 
         (/^1[34578]\d{9}$/.test(event.target.value) && this.state.val2.trim().length === 4 ) ? this.setState({loginActive: true}) :this.setState({loginActive: false})
-
-
     },
     change2(event){
         this.setState({val2: event.target.value});
@@ -59,7 +57,7 @@ export default React.createClass({
     render(){
         return (
             <div id="phone">
-                <MyTitle title="" name=""/>
+                <MyTitle title="手机号登录" />
                 <div className="shadow">
                     <div className="model">
                         <p>手机号码有误!!!</p>

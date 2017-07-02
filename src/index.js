@@ -6,7 +6,7 @@ import './assets/css/style_edit.css'
 import Home from './pages/Home';
 import Show from './pages/Show';
 import RecommendSearch from './pages/RecommendSearch';
-import SubscribeSearch from './pages/SubscribeSearch';
+import OrderSearch from './pages/OrderSearch';
 import MyOrder from './pages/MyOrder';
 import MyLike from './pages/MyLike';
 import MyComment from './pages/MyComment';
@@ -35,18 +35,18 @@ ReactDOM.render(
                 <IndexRoute component={RecommendSearchTxt}/>
                 <Route path="/industry/:id" component={SecondNav}/>
                 {/*<Route path="/industry/:id/:index" component={SecondNav}/>*/}
-                <Route path="/order/:id" component={OrderSearchTxt}/>
+                {/*<Route path="/order/:id" component={OrderSearchTxt}/>*/}
             </Route>
             <Route path="/show" component={Show}/>
             <Route path="/search" component={RecommendSearch}/>
             <Route path="/myOrder" component={MyOrder}/>
-            <Route path="/subscribe" component={SubscribeSearch}/>
+            <Route path="/orderSearch" component={OrderSearch}/>
             <Route path="/myLike" component={MyLike}/>
             <Route path="/myComment" component={MyComment}/>
             <Route path="/sugguestion" component={Sugguestion}/>
-            <Route path="/loginlist" component={LoginList}/>
-            <Route path="/phonelogin" component={PhoneLogin}/>
-            <Route path="/ordershow" component={OrderShow}/>
+            <Route path="/loginList" component={LoginList}/>
+            <Route path="/phoneLogin" component={PhoneLogin}/>
+            <Route path="/orderShow" component={OrderShow}/>
         </Router>
     </Provider>,
     document.getElementById('root')

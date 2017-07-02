@@ -21,7 +21,12 @@ export default React.createClass({
     },
     goOrderShow(data){
         hashHistory.push({
-            pathname:'/subscribe'
+            pathname:'/orderShow'
+        })
+    },
+    jump(){
+        hashHistory.push({
+            pathname:'/orderSearch'
         })
     },
     renderOrderData(){

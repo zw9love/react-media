@@ -9,6 +9,7 @@ export default React.createClass({
         }
     },
     jump(){
+        // console.log(this.props.data)
         hashHistory.push({
             pathname: '/show',
             state:{
@@ -21,8 +22,8 @@ export default React.createClass({
             <div>
                 <div className={this.state.isMovie ? "media_info_big have_movie" : "media_info_big"} >
                         <p><a href="javascript:;" onClick={()=>{this.jump()}}>{this.props.data.title}</a></p>
-                <a href="javascript:;" className="movie" >
-                    <img src={require("../assets/img/b1.jpg")} alt="" onClick={()=>{this.jump()}}/>
+                <a href="javascript:;" className="movie" onClick={()=>{this.jump()}}>
+                    <img src={require("../assets/img/b1.jpg")} alt="" />
                     <div className="media_info_movie">
                         <span></span>
                     </div>

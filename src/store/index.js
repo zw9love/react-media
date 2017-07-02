@@ -27,10 +27,34 @@ function editTargetReducer(state = null,action){
     }
 }
 
+function maskReducer(state = null,action){
+    const {type,value} = action;
+    switch (type){
+        case 'setMask':
+            state = value
+            return state
+        default:
+            return state
+    }
+}
+function maskLockReducer(state = false,action){
+    const {type,value} = action;
+    switch (type){
+        case 'setMaskLock':
+            state = value
+            return state
+        default:
+            return state
+    }
+}
+
+
 
 const reducers = combineReducers({
     myShadowReducer,
     editTargetReducer,
+    maskReducer,
+    maskLockReducer,
     routing: routerReducer
 })
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import MyLine from './MyLine'
-import OrderButton from './OrderButton'
+import OrderButton from './OrderCell'
 import '../assets/css/style_order.css'
 import { hashHistory } from 'react-router'
 

@@ -1,15 +1,18 @@
 import React, {Component} from 'react';
 import '../assets/css/style_show.css'
-import Order from '../components/Order'
-
 import Recommend from '../components/Recommend'
 import Comment from '../components/Comment'
+import Mask from '../components/Mask'
+import OrderCell from '../components/OrderCell'
 import $ from 'jquery'
 import Mock from 'mockjs'
 import {myScroll,unScroll} from '../tool/Scroll'
 import {hashHistory} from 'react-router'
 
 export default React.createClass({
+    contextTypes: {
+        store: React.PropTypes.object.isRequired
+    },
     componentDidMount(){
         console.log(this.state.data)
         $(window).scrollTop(0)
@@ -51,14 +54,14 @@ export default React.createClass({
         this.setState({active:true,shareActive:false,shadowActive:false})
     },
     starClick(){
-        // let maskLock = this.$store.getters.getMaskLock
-        // if (maskLock) return
-        // let action = {type: 'setMaskLock', value: true}
-        // this.$store.dispatch(action)
-        // this.starActive = !this.starActive
-        // let mask = this.$store.getters.getMask
-        // mask.msg = this.starActive ? '已添加收藏' : '已取消收藏'
-        // mask.toggleActive()
+        let maskLock = this.context.store.getState().maskLockReducer
+        if (maskLock) return
+        let action = {type: 'setMaskLock', value: true}
+        this.context.store.dispatch(action)
+        let mask = this.context.store.getState().maskReducer
+        mask.msg = this.state.starActive ? '已取消收藏' : '已添加收藏'
+        mask.changeState()
+        this.setState({starActive:!this.state.starActive})
     },
     sureText(){
         this.setState({shadowActive:false,textActive:false})
@@ -278,6 +281,7 @@ export default React.createClass({
     render(){
         return (
             <div id="show">
+                <Mask />
                 <section className="main">
                     <p className="main_title">{this.state.data.title}</p>
                     <div className="line"></div>
@@ -289,7 +293,7 @@ export default React.createClass({
                             <p><a href="javascript:;">{this.state.data.author}</a></p>
                             <p>{this.state.data.time}</p>
                         </div>
-
+                        <OrderCell orderActive={this.state.data.isOrder}/>
                     </div>
                     <div className="line"></div>
                     {this.renderMain()}
@@ -316,6 +320,11 @@ export default React.createClass({
                         {this.renderCommentCell()}
                     </div>
                 </section>
+                {
+                    this.state.shadowActive ? (
+                        <div className="show-shadow"></div>
+                    ) : null
+                }
                 {this.renderBottom()}
                 {this.renderShare()}
                 {this.renderTextArea()}
