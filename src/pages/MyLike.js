@@ -69,6 +69,11 @@ export default class MyLike extends Component {
         shadow.setState({shadowActive:true})
     }
 
+    sureDelete(){
+        this.state.recommendData.splice(this.state.editIndex,1)
+        this.setState({recommendData:this.state.recommendData})
+    }
+
     renderRecommendCell() {
         let arr = []
         let data = this.state.recommendData

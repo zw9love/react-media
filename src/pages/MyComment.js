@@ -65,6 +65,11 @@ export default class MyComment extends Component {
         shadow.setState({shadowActive:true})
     }
 
+    sureDelete(){
+        this.state.commendData.splice(this.state.editIndex,1)
+        this.setState({commendData:this.state.commendData})
+    }
+
     renderCommendCell() {
         let arr = []
         let data = this.state.commendData

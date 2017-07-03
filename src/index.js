@@ -14,9 +14,9 @@ import Sugguestion from './pages/Sugguestion';
 import LoginList from './pages/LoginList'
 import PhoneLogin from './pages/PhoneLogin'
 import OrderShow from './pages/OrderShow'
-import SecondNav from './components/SecondNav'
 import OrderSearchTxt from './components/OrderSearchTxt'
 import RecommendSearchTxt from  './components/RecommendSearchTxt'
+import IndustryNav from  './components/IndustryNav'
 
 import {Provider} from 'react-redux'
 import store from './store/index'
@@ -33,12 +33,11 @@ ReactDOM.render(
             <Route path="/" component={Home}>
                 {/*默认的路由组件是<RecommendSearchTxt />*/}
                 <IndexRoute component={RecommendSearchTxt}/>
-                <Route path="/industry/:id" component={SecondNav}/>
-                {/*<Route path="/industry/:id/:index" component={SecondNav}/>*/}
-                {/*<Route path="/order/:id" component={OrderSearchTxt}/>*/}
+                <Route path="/home/industry" component={IndustryNav}/>
+                <Route path="/home/order" component={OrderSearchTxt}/>
             </Route>
             <Route path="/show" component={Show}/>
-            <Route path="/search" component={RecommendSearch}/>
+            <Route path="/recommendSearch" component={RecommendSearch}/>
             <Route path="/myOrder" component={MyOrder}/>
             <Route path="/orderSearch" component={OrderSearch}/>
             <Route path="/myLike" component={MyLike}/>

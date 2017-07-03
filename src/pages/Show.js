@@ -14,11 +14,11 @@ export default React.createClass({
         store: React.PropTypes.object.isRequired
     },
     componentDidMount(){
-        console.log(this.state.data)
         $(window).scrollTop(0)
         this.renderRecommendData()
         this.renderCommentData()
         myScroll(this, {'data_name': 'commentData', 'fn_name': 'renderCommentData', 'num': 30})
+        this.context.store.dispatch({type:'setShowTarget',value:this})
     },
     // 组件销毁的时候
     componentWillUnmount() {
@@ -39,6 +39,9 @@ export default React.createClass({
             placeholder: '我来说两句...',
             txtTarget:null
         }
+    },
+    txtChange(event){
+        this.setState({myComment:event.target.value})
     },
     goBack(){
         hashHistory.go(-1)
@@ -64,7 +67,40 @@ export default React.createClass({
         this.setState({starActive:!this.state.starActive})
     },
     sureText(){
-        this.setState({shadowActive:false,textActive:false})
+        // 如果是在点击comment块的时候
+        if (this.state.commentActive) {
+            let commentTarget = this.context.store.getState().commentTargetReducer
+            let name = ''
+            if (this.state.placeholder.search('回复') != -1) {
+                name = this.state.placeholder.slice(3)
+            }
+
+            let data = {
+                'name1': '旺仔小牛奶',
+                'name2': name,
+                'info': this.state.myComment
+            }
+            // console.log(data)
+            if(commentTarget.state.length <= 5){
+                commentTarget.setState({renderData:commentTarget.state.renderData.concat(data)})
+            }else{
+                commentTarget.setState({data:commentTarget.state.data.concat(data)})
+            }
+            this.setState({shadowActive:false,textActive:false})
+
+        } else {
+            let data = {
+                'title': this.state.myComment,
+                'author': '旺仔小牛奶',
+                'msg_num': 0,
+                'like_num': 0,
+                'time': '刚刚',
+                // 评论的条数
+                'data': []
+            }
+            console.log(data)
+            this.setState({shadowActive:false,textActive:false,commentData:this.state.commentData.concat(data)})
+        }
     },
     cancelText(){
         this.setState({shadowActive:false,textActive:false})
@@ -79,7 +115,7 @@ export default React.createClass({
                     <div className="btn2">
                         <span><a href="javascript:;" onClick={()=>{this.sureText()}}>发表</a></span>
                     </div>
-                    <textarea id="txt" placeholder={this.state.placeholder}  ref="txt" />
+                    <textarea id="txt" placeholder={this.state.placeholder}  onInput={this.txtChange} ref="txt" />
                 </div>
             )
         }else{

@@ -2,27 +2,40 @@ import React from 'react'
 import '../assets/css/style_comment.css'
 
 export default React.createClass({
+    contextTypes: {
+        store: React.PropTypes.object.isRequired
+    },
     getInitialState(){
         return {
-            isActive: this.props.data.data.length >= 5 ? true : false,
+            isActive: this.props.data.data.length > 5 ? true : false,
             likeNum:Number(this.props.data.like_num),
             renderData:this.props.data['data'].slice(0, 5),
+            data:this.props.data['data'],
             length:this.props.data['data'].length,
         }
     },
     componentDidMount(){
 
     },
+    writeMessage(){
+        if(!this.props.commentActive) return
+        let show = this.context.store.getState().showTargetReducer
+        this.context.store.dispatch({type: 'setCommentTarget', value: this})
+        show.setState({placeholder:'我来说两句...',myComment:'',commentActive:true,shadowActive:true,textActive:true})
+    },
     add(){
-        if (this.isAdd)  return
+        if (this.isAdd || !this.props.commentActive)  return
         this.isAdd = !this.isAdd
         this.setState({likeNum: this.state.likeNum + 1})
     },
     more(){
-        this.setState({renderData:this.props.data['data'],length:0,isActive:false})
+        this.setState({renderData:this.state.data,length:0,isActive:false})
     },
     nameClick(name){
-
+        if(!this.props.commentActive) return
+        let show = this.context.store.getState().showTargetReducer
+        this.context.store.dispatch({type: 'setCommentTarget', value: this})
+        show.setState({placeholder:`回复：${name}`,myComment:'',commentActive:true,shadowActive:true,textActive:true})
     },
     renderReply(){
         let arr = []
@@ -56,8 +69,8 @@ export default React.createClass({
                     </div>
                     <div className="main_comment">
                         <div className="main_comment_contain">
-                            <span>{this.props.data.data.length}</span>
-                            <a href="javascript:;"><img src={require("../assets/img/msg.png")} alt=""/></a>
+                            <span>{this.state.data.length}</span>
+                            <a href="javascript:;" onClick={this.writeMessage}><img src={require("../assets/img/msg.png")} alt=""/></a>
                         </div>
                         <div className="main_comment_contain">
                             <span>{this.state.likeNum}</span>

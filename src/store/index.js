@@ -37,10 +37,33 @@ function maskReducer(state = null,action){
             return state
     }
 }
+
 function maskLockReducer(state = false,action){
     const {type,value} = action;
     switch (type){
         case 'setMaskLock':
+            state = value
+            return state
+        default:
+            return state
+    }
+}
+
+function showTargetReducer(state = null,action){
+    const {type,value} = action;
+    switch (type){
+        case 'setShowTarget':
+            state = value
+            return state
+        default:
+            return state
+    }
+}
+
+function commentTargetReducer(state = null,action){
+    const {type,value} = action;
+    switch (type){
+        case 'setCommentTarget':
             state = value
             return state
         default:
@@ -55,6 +78,8 @@ const reducers = combineReducers({
     editTargetReducer,
     maskReducer,
     maskLockReducer,
+    showTargetReducer,
+    commentTargetReducer,
     routing: routerReducer
 })
 

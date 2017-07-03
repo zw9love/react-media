@@ -1,7 +1,7 @@
 /*页面的搜索块的样式*/
 
 .search_contain{
-    margin-top: 6rem;
+    margin-top: calc(50px + 1rem);
 }
 
 .media_search {

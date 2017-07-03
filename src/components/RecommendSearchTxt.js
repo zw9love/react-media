@@ -6,7 +6,7 @@ export default React.createClass({
         return{
             data:{
                 name:'搜索推荐号',
-                url:'/search'
+                url:'/recommendSearch'
             }
         }
     },

@@ -6,7 +6,7 @@ export default React.createClass({
         return{
             data:{
                 name:'搜索订阅号',
-                url:'/orderlist'
+                url:'/orderSearch'
             }
         }
     },

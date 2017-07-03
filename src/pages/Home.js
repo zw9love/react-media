@@ -27,7 +27,7 @@ class App extends Component {
     state = {
         recommendData: [],
         firstNavData: [],
-        index: 0,
+        index: 10000,
         activeIndex: 0,
         asideActive: false,
         backHome: null,
@@ -71,6 +71,7 @@ class App extends Component {
 
     // 组件dom结构加载完成
     componentDidMount() {
+        hashHistory.push('/')
         this.renderFirstNavData()
         this.renderRecommendData()
         myScroll(this, {'data_name': 'recommendData', 'fn_name': 'renderRecommendData', 'num': 100})
@@ -214,12 +215,26 @@ class App extends Component {
     renderFirstNav() {
         let data = this.state.firstNavData
         let arr = []
+        let href = ''
         data.forEach((msg, i) => {
+            switch(i){
+                case 0:
+                    href = '#/'
+                    break
+                case 1:
+                    href = '#/home/industry'
+                    break
+                case 2:
+                    href = '#/home/order'
+                    break
+                default:
+                    href = '#/'
+            }
             arr.push(
                 <li key={i} onClick={() => {
                     this.firstNavClick(i)
                 }}>
-                    <a href="javascript:;" className={this.state.activeIndex == i ? 'current' : ''}>{msg.name}</a>
+                    <a href={href} className={this.state.activeIndex == i ? 'current' : ''}>{msg.name}</a>
                 </li>
             )
         })
@@ -283,9 +298,9 @@ class App extends Component {
                     {/*一级导航*/}
                     <div className="header_contain">
                         <header className="media_header">
-                            <a href="javascript:;" onClick={() => {
-                                this.moreInfo(true)
-                            }}><img src={require("../assets/img/nav.png")} alt=""/></a>
+                            <a href="javascript:;" onClick={() => {this.moreInfo(true)}}>
+                                <img src={require("../assets/img/nav.png")} alt=""/>
+                            </a>
                             <div className="media_header_info" id="wrapper">
                                 <ul id="scroller">
                                     {this.renderFirstNav()}
@@ -293,10 +308,9 @@ class App extends Component {
                             </div>
                         </header>
                     </div>
-                    {/*<FirstNav ref="firstnav" moreInfo={this.moreInfo} backHome={this.state.backHome}/>*/}
                     {/*给子路由传参*/}
                     {this.props.children && React.cloneElement(this.props.children, {
-                        index: this.state.index
+                        parentTarget:this
                     })}
 
                     <section className="media_info">
