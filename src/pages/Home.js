@@ -6,7 +6,7 @@ import MyShadow from '../components/MyShadow'
 import $ from 'jquery'
 import {myScroll, unScroll} from '../tool/Scroll'
 import Mock from 'mockjs'
-import { hashHistory } from 'react-router'
+import {hashHistory} from 'react-router'
 
 
 class App extends Component {
@@ -57,10 +57,6 @@ class App extends Component {
         unScroll()
         $('body').removeClass('body')
         $('html').removeClass('html')
-        // $('html,body').css({
-        //     'perspective': 'none',
-        //     '-webkit-perspective': 'none'
-        // });
     }
 
     // 组件的state值被更新
@@ -71,16 +67,41 @@ class App extends Component {
 
     // 组件dom结构加载完成
     componentDidMount() {
-        hashHistory.push('/')
         this.renderFirstNavData()
         this.renderRecommendData()
         myScroll(this, {'data_name': 'recommendData', 'fn_name': 'renderRecommendData', 'num': 100})
-        // console.log(1)
-        // if(Cookie.myCookie.getCookie('backHome')) this.moreInfo(true) ;
-        // Cookie.myCookie.deleteCookie('backHome');
-        var id = this.props.params.id;
-        if (!id) return;
-        this.refs.firstnav.refs.mynav.refs['li' + id].handleClick();
+
+        // fetch('http://192.168.0.234:80/sta/get',{
+        //             headers: {
+        //                 'Accept': 'application/json',
+        //                 'Content-Type': 'application/json',
+        //                 'token':'debug'
+        //             }
+        //         }
+        //     ).then(function(response) {
+        //         if (response.status >= 400) {
+        //             throw new Error("Bad response from server");
+        //         }
+        //         // console.log(response.json())
+        //         return response.json();
+        //     })
+        //     .then(function(stories) {
+        //         console.log(stories);
+        //     });
+
+        // $.ajax({
+        //     type: "post",
+        //     url: "http://192.168.0.234:80/sta/get", /*url写异域的请求地址*/
+        //     headers: {
+        //         token: 'debug'
+        //     },
+        //     success: function () {
+        //
+        //     }
+        // });
+
+        if (this.props.location.pathname == '/') return
+        hashHistory.push('/')
     }
 
     // 点击更多信息图标
@@ -116,7 +137,7 @@ class App extends Component {
         console.log(e.target)
     }
 
-    goLogin(){
+    goLogin() {
         hashHistory.push('/loginList')
     }
 
@@ -217,7 +238,7 @@ class App extends Component {
         let arr = []
         let href = ''
         data.forEach((msg, i) => {
-            switch(i){
+            switch (i) {
                 case 0:
                     href = '#/'
                     break
@@ -278,7 +299,8 @@ class App extends Component {
                 {/*<!--侧边栏-->*/}
                 <div className={this.state.asideActive ? 'aside go_aside' : 'aside'} style={this.state.asideStyle}>
                     <div className="login_head">
-                        <a href="javascript:;" onClick={this.goLogin}><img src={require("../assets/img/login.png")} alt=""/></a>
+                        <a href="javascript:;" onClick={this.goLogin}><img src={require("../assets/img/login.png")}
+                                                                           alt=""/></a>
                         <span><a href="javascript:;" onClick={this.goLogin}>点击登录</a></span>
                     </div>
                     <ul>
@@ -298,7 +320,9 @@ class App extends Component {
                     {/*一级导航*/}
                     <div className="header_contain">
                         <header className="media_header">
-                            <a href="javascript:;" onClick={() => {this.moreInfo(true)}}>
+                            <a href="javascript:;" onClick={() => {
+                                this.moreInfo(true)
+                            }}>
                                 <img src={require("../assets/img/nav.png")} alt=""/>
                             </a>
                             <div className="media_header_info" id="wrapper">
@@ -310,7 +334,7 @@ class App extends Component {
                     </div>
                     {/*给子路由传参*/}
                     {this.props.children && React.cloneElement(this.props.children, {
-                        parentTarget:this
+                        parentTarget: this
                     })}
 
                     <section className="media_info">
