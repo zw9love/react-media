@@ -22,26 +22,26 @@ class App extends Component {
         this.renderAside = this.renderAside.bind(this);
         this.asideClick = this.asideClick.bind(this);
         this.goLogin = this.goLogin.bind(this);
+        this.state = {
+            recommendData: [],
+            firstNavData: [],
+            index: 10000,
+            activeIndex: 0,
+            asideActive: false,
+            backHome: null,
+            lock: false,
+            asideData: [
+                {href: '#/myOrder', src: require('../assets/img/myorder.png'), name: '我的订阅'},
+                {href: '#/myLike', src: require('../assets/img/star.png'), name: '我的收藏'},
+                {href: '#/myComment', src: require('../assets/img/fix_msg.png'), name: '我的评论'},
+                {href: '#/sugguestion', src: require('../assets/img/suggestion.png'), name: '意见反馈'},
+                {href: 'javascript:;', src: require('../assets/img/quit.png'), name: '退出',}
+            ],
+            asideStyle: {},
+            shadowTitle: '是否确定退出？'
+        }
     }
 
-    state = {
-        recommendData: [],
-        firstNavData: [],
-        index: 10000,
-        activeIndex: 0,
-        asideActive: false,
-        backHome: null,
-        lock: false,
-        asideData: [
-            {href: '#/myOrder', src: require('../assets/img/myorder.png'), name: '我的订阅'},
-            {href: '#/myLike', src: require('../assets/img/star.png'), name: '我的收藏'},
-            {href: '#/myComment', src: require('../assets/img/fix_msg.png'), name: '我的评论'},
-            {href: '#/sugguestion', src: require('../assets/img/suggestion.png'), name: '意见反馈'},
-            {href: 'javascript:;', src: require('../assets/img/quit.png'), name: '退出',}
-        ],
-        asideStyle: {},
-        shadowTitle: '是否确定退出？'
-    }
 
     componentWillMount() {
         // $('html,body').css({

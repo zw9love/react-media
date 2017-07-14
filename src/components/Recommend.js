@@ -1,5 +1,5 @@
 import React from 'react';
-import '../assets/css/style_recommend.css'
+import styles from '../assets/css/style_recommend.css'
 import { hashHistory } from 'react-router';
 
 export default React.createClass({
@@ -20,7 +20,7 @@ export default React.createClass({
     render:function(){
         return (
             <div>
-                <div className={this.state.isMovie ? "media_info_contain have_movie" : "media_info_contain"}>
+                <div className={this.state.isMovie ? `${styles.media_info_contain} ${styles.have_movie}`  : styles.media_info_contain}>
                     <div className="media_info_left">
                         <a href="javascript:;" onClick={()=>{this.jump()}}>
                             <img src={require("../assets/img/p1.jpg")} alt="" />
